@@ -1,0 +1,153 @@
+﻿@*@using System.Web.Mvc.Html*@
+@model   Nop.Web.DallasArt.ViewModels.SelfIdentificationViewModel
+
+@* remember view state if failed return *@
+@Html.HiddenFor(model => model.RequestPhoneNumber)
+@Html.HiddenFor(model => model.RequestEmail)
+@Html.HiddenFor(model => model.RequestPassword)
+
+@Html.HiddenFor(model => model.Member )
+
+ 
+<style>
+    strong {
+        font-size: 0.8rem!important;
+    }
+
+
+    input#RadioButtionList_SelectedRole {
+        width: 30px;
+        margin-right: -10px;
+    }
+
+
+</style>
+
+@*  the  @hidden variable may be used when the fields are known to prevent further changes   *@
+@{
+    string hidden = @Model.Member ? "hidden" : "";  /* hide field if member !! */ }
+
+<div class="fieldset   @hidden   ">
+
+    <h4>Enter  @T("Account.YourPersonalDetails"):</h4>
+
+    <section class="Identity" >
+        <div class="identity-wrapper">
+            <div class="form-group ">
+                <div class="form-info">
+                    @Html.LabelFor(model => model.FirstName, new { @class = "control-label" }, ":")
+                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger input-error" })
+                    @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", required = "required", placeholder = "First Name" })
+                    @Html.RequiredHint()
+                </div>
+
+                <div class="form-info">
+                    @Html.LabelFor(model => model.LastName, new { @class = "control-label" }, ":")
+                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger input-error" })
+                    @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", placeholder = "Last Name" })
+                    @Html.RequiredHint()
+                </div>
+
+            </div>
+
+            @if (Model.RequestPhoneNumber)
+            {
+                <div class="form-group ">
+                    <div class="form-info">
+                        @Html.LabelFor(model => model.Phone, new { @class = "control-label" }, ":")
+                        @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger input-error" })
+                        @Html.TextBoxFor(model => model.Phone, new { @class = "form-control", placeholder = "Phone Number ", type = "tel" })
+                        @Html.RequiredHint()
+                    </div>
+                    <div class="form-info">
+                        @Html.LabelFor(model => model.ConfirmPhone, new { @class = "control-label" }, ":")
+                        @Html.ValidationMessageFor(model => model.ConfirmPhone, "", new { @class = "text-danger input-error" })
+                        @Html.TextBoxFor(model => model.ConfirmPhone, new { @class = "form-control", placeholder = "Confirm Phone Number", type = "tel" })
+                        @Html.RequiredHint()
+                    </div>
+                </div>
+            }
+
+            <div class="form-group ">
+                <div class="form-info">
+                    @Html.LabelFor(model => model.Email, new { @class = "control-label" }, ":")
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger input-error" })
+                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control", type = "email", placeholder = "Enter Email Address" })
+                    @Html.RequiredHint()
+                </div>
+                <div class="form-info">
+                    @Html.LabelFor(model => model.ConfirmEmail, new { @class = "control-label" }, ":")
+                    @Html.ValidationMessageFor(model => model.ConfirmEmail, "", new { @class = "text-danger input-error" })
+                    @Html.TextBoxFor(model => model.ConfirmEmail, new { @class = "form-control", type = "email", placeholder = "Confirm Email Address" })
+                    @Html.RequiredHint()
+                </div>
+            </div>
+
+
+            @if (Model.AskForMembershipStatus)
+            {
+                <div class="form-group">
+
+                    <div class="form-info">
+                        <strong>  @Html.Label("Are you a Plano Art Association Member?") </strong>
+                    </div>
+                    <div class="form-info">
+                   
+                        @foreach (var item in Model.RadioButtionList.Roles)
+                        {
+                            @Html.RadioButtonFor(model=>model.RadioButtionList.SelectedRole,  item.Id) <strong>@item.RollName</strong>
+                        }
+                        
+
+                        @Html.ValidationMessageFor(model => model.RadioButtionList.SelectedRole, "", new { @class = "text-danger input-error" })
+
+                    </div>
+                </div>
+            }
+
+
+
+
+
+
+
+
+
+            @*<strong>
+           <br />
+        </strong>
+
+        @Html.Label("Yes") @Html.RadioButton("membership", 1, isChecked: false) <br>
+
+                @Html.Label(" No") &nbsp; @Html.RadioButton("membership", 2, isChecked: false) <br>
+
+                @Html.RequiredHint()*@
+
+
+
+
+
+
+            @if (Model.RequestPassword)
+            {
+                <div class="form-group ">
+                    <div class="form-info">
+                        @Html.LabelFor(model => model.Password, new { @class = "control-label" }, ":")
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger input-error" })
+                        @Html.TextBoxFor(model => model.Password, new { @class = "form-control", type = "password", placeholder = "Select Password" })
+                        @Html.RequiredHint()
+                    </div>
+                    <div class="form-info">
+                        @Html.LabelFor(model => model.ConfirmPassword, new { @class = "control-label" }, ":")
+                        @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger input-error" })
+                        @Html.TextBoxFor(model => model.ConfirmPassword, new { @class = "form-control", type = "password", placeholder = "Confirm Selected Password" })
+                        @Html.RequiredHint()
+                    </div>
+                </div>
+
+
+            }
+        </div>
+    </section> 
+
+</div><!--end FieldSet -->

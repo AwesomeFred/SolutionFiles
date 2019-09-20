@@ -1,0 +1,54 @@
+﻿@using Nop.Web.Themes.PAA.ViewModels
+
+
+
+@{
+    ImageUploadViewModel ivm = new ImageUploadViewModel();
+
+    var se = @Model.SelfIdentificationViewModel;
+
+    var email = se.Email;
+    var phone = se.Phone;
+    var name = se.FirstName + " " + se.LastName;
+
+
+
+    //    ivm.EmailAddress = email;
+    ivm.Telephone = phone;
+    ivm.CustomerName = name;
+    ivm.RemainingImages = Model.TotalCount;
+
+}
+
+
+
+
+<div class="form-group">
+    <div class="form-info" style="font-size:0.9rem; white-space: nowrap!important">
+
+       
+
+        <h3> Current Member Submission </h3>
+        <p>
+            Instructions: <br>
+            Click 'Proceed to Checkout' to complete your payment. <br>
+            After completing continue to identify and upload your image(s). <br>
+            The maximum image size limit is (x mb). <br>
+            The up-loader will only except '.jpeg' images. <br>
+        </p>
+
+
+
+
+
+    </div>
+
+
+    <div class="form-info">
+        <br><br>
+        <button type="submit" id="register-button" name="register-button" class="common-buttons button-2">
+            Proceed To Checkout
+        </button>
+    </div>
+
+</div>

@@ -1,0 +1,28 @@
+﻿
+<nav>
+    <div id="navWrapper">
+
+        <h3  onClick="open_nav(); return false;"   id="#mobile-clicker">MENU <span class="clicker"></span>  </h3>
+
+        <div class="phoneDropdown ">
+
+            @Html.Partial("_Menu")
+
+        </div>
+
+        <div class="phoneHidden">
+
+            @Html.Partial("_Menu")
+
+        </div>
+
+    </div>
+</nav>
+
+<script type="text/javascript">
+  function open_nav () {
+      
+      $(".phoneDropdown").toggleClass("action");
+  }
+
+</script>

@@ -1,0 +1,135 @@
+@import "mixins";
+
+
+.bss-slides {
+    // the container element needs to be relatively positioned and display:
+    // block so that the slides can be "stacked up" inside of it
+    position: relative;
+    display: block;
+    line-height: 0; // removes the gap if you put a border on the slide show div
+    figure {
+        // these are the individual slides each containing an img and caption.
+        //  they are positioned absolute at the top of the slide show container, so they
+        //  will be stacked up like a deck of cards
+        position: absolute;
+        top: 0;
+        width: 100%;
+
+        &:first-child {
+            // the very first slide is relatively positioned in order to give height
+            // to the container element
+            position: relative;
+        }
+
+        img {
+            //all slide images are made "invisible" with an opacity of 0, then we
+            //set the transition property so that later when we change it,it transitions
+            //over 1.2 seconds for a fade in/out effect instead of changing instantly
+            //opacity: 0;
+            @include opacity(0);
+            //transition: opacity 1.2s;
+            @include transition(opacity 1.2s);
+            backface-visibility: hidden;
+            // added
+            width: 100% !important;
+        }
+
+
+        figcaption {
+            // the caption is positioned absolutely near the bottom right of the slide, then we hide it
+            // with an opacity of 0, and set the transition property just like with the img element above
+            position: absolute;
+ //           font-family: sans-serif;
+            font-size: 1.2em;
+            top: - 2.4em;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            padding: .25em;
+            color: cornflowerblue;
+            background: none;
+            // background: rgba(0,0,0, .25);
+            border-radius: 2px;
+            
+            //opacity: 0;
+            @include opacity(0);
+            //transition: opacity .7s;
+            @include transition(opacity 0.7s);
+            //transition-timing-function: ease-in;
+            @include transition-timing-function(ease-in);
+            line-height: 1.5; // restores line-height to the child element
+        }
+    }
+
+
+    .bss-show {
+        z-index: 2;
+
+        img {
+            // this is for the currently visible slide - it's the only one that shows,
+            // with full opacity
+            //opacity: 1;
+            @include opacity(1);
+            backface-visibility: hidden;
+            position: relative;
+        }
+
+        figcaption {
+            // this is for the currently visible slide caption it's the only one that shows, with full opacity,
+            // just like the current img. the caption also has a z-index of 3 to ensure it always appears
+            // above the img
+            z-index: 3;
+            //opacity: 1;
+            @include opacity(1);
+
+            span {
+                font-size: 1rem;
+                margin-top: -8px;
+                display: block;
+            }
+
+            a {
+                color: #fff;
+            }
+        }
+    }
+}
+
+.bss-next,
+.bss-prev {
+    //for the next/prev buttons this positions them vertically in the middle of the slides,
+    //with a z-index to ensure they appear over the slides, an opacity of .5 so they are
+    //semi-transparent by default, and the user-select none is so they don't accidentally
+    //get highlighted when clicking on them
+    color: #fff;
+    position: absolute;
+    background: #000;
+    background: rgba(0,0,0, .6);
+    top: 50%;
+    z-index: 4;
+    font-size: 2em;
+    margin-top: -1.2em;
+    //opacity: .3;
+    @include opacity(.3);
+    user-select: none;
+
+    &:hover {
+        cursor: pointer;
+        //opacity: 1;
+        @include opacity(1);
+    }
+}
+
+.bss-next {
+    // position 'next' button at right
+    right: -36px;
+    padding: 10px 5px 15px 10px;
+    border-radius: 3px;
+}
+
+.bss-prev {
+  // position 'previous' button at left */
+    left: -35px;
+    padding: 10px 10px 15px 5px;
+    border-radius: 3px;
+}

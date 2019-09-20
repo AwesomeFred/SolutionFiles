@@ -1,0 +1,130 @@
+﻿/// <reference path="_mixins.scss" />
+/// <reference path="_variables.scss" />
+
+/*** Begin - Form Overrides ***/
+
+
+@import "form-view";
+
+// page overrides
+form {
+
+    span.required {
+        display: none !important;
+    }
+
+    .control-label {
+        display: none;
+    }
+
+     background:#ddd;
+
+
+    p {
+        font-size: 1rem !important;
+        margin-bottom: 1rem;
+    }
+
+
+    div.form-section {
+        border: solid 1px lighten($fontColor, 50%);
+        border-radius: $gutter * 0.5;
+        padding: $gutter;
+        margin-bottom: $gutterdbl;
+
+
+        div.form-group {
+            overflow: auto;
+            margin: 0 0 2% 0;
+            padding: 0;
+
+            div.form-info {
+                margin: 0 0 1% 0;
+            }
+        }
+    }
+}
+
+//  non-phone adjustments
+ @media only screen and (min-width: $tabletMin) {
+
+    form {
+
+
+        div.form-section div.form-group {
+
+
+
+            div.form-info {
+                box-sizing: border-box;
+                width: 49% !important;
+                float: left;
+                margin: 0 0 0 1% !important;
+
+
+                input[type="submit"] {
+                    background: green;
+                    color: white;
+                    width: auto;
+                }
+            }
+
+
+            div.form-info:first-child {
+                margin: 0 1% 0 0 !important;
+            }
+        }
+    }
+
+
+    #Image-Entry-Form {
+        @media only screen and (min-width: $tabletMin) {
+
+
+            form {
+
+                background-color:transparent;
+
+                .left-side {
+                    border: 1px solid #c1c1c1;
+                    background-color: #ccc;
+                    border-radius: 8px;
+                    float: left;
+                    margin: 1rem 1rem 0 0;
+                    width: 85%;
+                    padding: 2% 4%;
+                  
+
+
+                    div.identity-wrapper {
+
+                     //  background-color: yellow !important;
+                       overflow-x:hidden;
+                       overflow-y:auto;
+                       padding:10px!important;
+                       
+                       div.form-group {
+
+                            margin:15px;
+                            padding-bottom: 30px;  
+                        }
+                    }
+
+
+
+                    .right-side {
+                        border: 1px solid #c1c1c1;
+                        background-color: pink; // #ccc;
+                        border-radius: 8px;
+                    }
+                }
+            }
+        }
+    }
+
+
+        #contact-page {
+        }
+    }
+// *** End - Form Overrides **//
+            

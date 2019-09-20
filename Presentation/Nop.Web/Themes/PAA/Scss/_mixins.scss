@@ -1,0 +1,147 @@
+﻿
+
+
+
+@mixin bder($color: red) {
+    border: 1px solid $color;
+}
+
+@mixin activeNav( $color, $num ) {
+    nav div#navWrapper ul li:nth-child( #{$num} ) a {
+        background-color: $color;
+    }
+}
+
+
+@mixin Light-Border( $color: 0.1, $side: "" ) {
+
+    @if $side == top {
+        border-top: 1px solid rgba(255,255,255,$color);
+    }
+    @else if $side == right {
+        border-right: 1px solid rgba(255,255,255,$color);
+    }
+    @else if $side == bottom {
+        border-bottom: 1px solid rgba(255,255,255,$color);
+    }
+    @else if $side == left {
+        border-left: 1px solid rgba(255,255,255,$color);
+    }
+    @else {
+        border: 1px solid rgba(255,255,255,$color);
+    }
+}
+
+@mixin Dark-Border( $color: 0.1, $side: "" ) {
+
+    @if $side == top {
+        border-top: 1px solid rgba(0,0,0,$color);
+    }
+    @else if $side == right {
+        border-right: 1px solid rgba(0,0,0,$color);
+    }
+    @else if $side == bottom {
+        border-bottom: 1px solid rgba(0,0,0,$color);
+    }
+    @else if $side == left {
+        border-left: 1px solid rgba(0,0,0,$color);
+    }
+    @else {
+        border: 1px solid rgba(0,0,0,$color);
+    }
+}
+
+
+
+
+// transforms
+@mixin transform($amount) {
+    -webkit-transform: translateY($amount);
+    -moz-transform: translateY($amount);
+    -ms-transform: translateY($amount);
+    -o-transform: translateY($amount);
+    transform: translateY($amount);
+}
+
+
+@mixin opacity($value) {
+    $ie-value: $value * 100;
+    opacity: $value;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="+$ie-value+")";
+    filter: alpha(opacity=$ie-value);
+}
+
+
+
+
+@mixin transition( $transion-value ) {
+    -webkit-transition: $transion-value;
+    -moz-transition: $transion-value;
+    -o-transition: $transion-value;
+    transition: $transion-value;
+}
+
+
+@mixin transition-timing-function ($timing-value) {
+    -webkit-transition-timing-function: $timing-value;
+    -moz-transition-timing-function: $timing-value;
+    -o-transition-timing-function: $timing-value;
+    transition-timing-function: $timing-value;
+}
+
+
+ 
+
+
+
+@mixin border-radius ($radius: 5px) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+}
+
+
+@mixin box-shadow ( $shadow-value ) {
+    -moz-box-shadow: $shadow-value;
+    -webkit-box-shadow: $shadow-value;
+    box-shadow: $shadow-value;
+}
+
+/// Mixin printing a linear-gradient
+/// as well as a plain color fallback
+/// and the `-webkit-` prefixed declaration
+/// @access public
+/// @param {Keyword | Angle} $direction - Linear gradient direction
+/// @param {Arglist} $color-stops - List of color-stops composing the gradient
+@mixin linear-gradient($direction, $color-stops...) {
+    background: nth(nth($color-stops, 1), 1);
+    background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+    background: linear-gradient($direction, $color-stops);
+}
+
+
+
+/// Clearfix mixin
+/// Usage:   @include %clearfix;
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+

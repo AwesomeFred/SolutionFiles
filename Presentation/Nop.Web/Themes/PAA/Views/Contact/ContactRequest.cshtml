@@ -1,0 +1,119 @@
+﻿
+@model Nop.Web.DallasArt.ViewModels.ContactRequestViewModel
+
+@{
+    Layout = "~/Views/Shared/_ColumnsOne.cshtml";
+    //title
+    Html.AddTitleParts(T("PageTitle.Register").Text);
+    //page class
+    Html.AppendPageCssClassParts("html-contact-page");
+
+
+}
+
+@{
+    ViewBag.Title = "PAA: Contact";
+    ViewBag.Id = "Contact";
+    ViewBag.PageTitle = "Contact";
+
+    ViewBag.HeadLine = "CONTACT US";
+
+    // personalize success
+    string Name = string.Format("{0} {1}", @Model.SelfIdentificationViewModel.FirstName, @Model.SelfIdentificationViewModel.LastName);
+    string hidden = @Model.Member ? "hidden" : "";  /* hide field if member !! */
+
+}
+
+@* remember view state if failed return *@
+@Html.HiddenFor(model => model.Member)
+
+
+<style>
+
+    .solicitations{ color: red; text-decoration: underline; font-weight: 600;}
+</style>
+
+<section id="contact-request">
+    
+        @*<h1>Contact Us</h1>*@
+  
+    
+    <hr class="fadeToRight" />
+
+    @using (Ajax.BeginForm("CustomerContact", "Contact",
+                                 new AjaxOptions
+                                 {
+                                     HttpMethod = "POST",
+                                     InsertionMode = InsertionMode.Replace,
+                                     UpdateTargetId = "replace-this-element"
+
+                                 }))
+
+    {
+        @Html.AntiForgeryToken()
+
+        @*<div class="message-error" style="color: black; background-color: red; font-size: 1.5em;">
+                @Html.ValidationSummary(true)
+            </div>*@
+
+        @*  Remember membership for Postback *@
+        @Html.HiddenFor(model => model.Member)
+
+
+        <section class="form-group ">
+    
+            <div class="form-info form-info-contact">
+                @Html.RequiredHint()
+                @Html.LabelFor(model => model.Question, new { @class = "control-label" }, ":")
+                @Html.ValidationMessageFor(model => model.Question, "", new { @class = "text-danger input-error  " })
+                @Html.TextAreaFor(model => model.Question, new
+           {
+               @class = "form-control",
+               @rows = 4,
+               placeholder = "Enter your questions or comments here. Please do not use this form for solicitations!"
+           })
+            </div>
+
+        </section> <!-- end section -->
+
+
+
+        @Html.Partial("_SelfIdentification", Model.SelfIdentificationViewModel)
+  
+             <div class="clearfix"></div>
+
+    <section>
+        <div id="replace-this-element">
+            
+
+            <p style="color:#aaa">&nbsp;&nbsp;&nbsp;&nbsp; Again, <span class="solicitations">please</span> - do not use the page for solicitations!</p>
+
+            <button type="submit" id="register-button" name="register-button" class="common-buttons button-2">
+                Submit Questions or Comments
+            </button>
+
+        </div>
+    </section>
+                <!-- end section -->
+
+    }
+</section><!-- end section -->
+
+<p>&nbsp;</p>
+
+
+<script type="text/javascript">
+
+    $(function () {
+
+        document.forms[0].elements['Question'].focus();
+
+        $('#Category').change(function () {
+
+            $('#Category   option:first-child').attr("disabled", true)
+           .attr("style", "background:#ccc;");
+        });
+    });
+
+
+</script>

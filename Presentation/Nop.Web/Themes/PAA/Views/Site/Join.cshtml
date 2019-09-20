@@ -1,0 +1,213 @@
+﻿@using Nop.Web.Themes.PAA.Infrastructure
+@{
+    ViewBag.Title = "Join";
+    ViewBag.Id = "Join";
+    ViewBag.PageTitle = "Join";
+}
+
+<style>
+    submit : backgrround-color:green;
+</style>
+
+<p class="member-requirement-statement">It is not required to be a resident of Plano to be a member of the association.</p>
+
+<section>
+    <div class="section-wrapper">
+
+        @*<form id="form1" action="/join" target="_self" method="post">*@
+
+        <ul class="join-list">
+            <li>
+                <figure>
+                    <div class="figure-wrapper">
+                        <div class="title-box">
+                            <p>ADULT </p>
+                            <p class="fa fa-caret-down"></p>
+                        </div>
+                        <figcaption>
+                            <div class="description">
+                                Age<br>18 to 54
+                            </div>
+                            <div class="price">
+                                <span>$</span>60
+                            </div>
+                            <div>
+                                <p>&nbsp;</p>
+                                
+                                <form id="form1" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                    <input type="hidden" name="cmd" value="_s-xclick">
+                                    <input type="hidden" name="hosted_button_id" value="J6ZKVDXNK5UYC">
+                                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                                    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                                </form>
+                                
+                                <p>&nbsp;</p>
+                                @*<input name="Adult" class="button" type="submit"  value="PAY NOW" />*@
+                            </div>
+                        </figcaption>
+                    </div>
+                </figure>
+            </li>
+
+            <li>
+                <figure>
+                    <div class="figure-wrapper">
+                        <div class="title-box">
+                            <p> SENIOR </p>
+                            <p class="fa fa-caret-down"></p>
+                        </div>
+                        <figcaption>
+                            <div class="description">
+                                Age<br>55+
+                            </div>
+                            <div class="price">
+                                <span>$</span>40
+                            </div>
+                            <div>
+                                <p>&nbsp;</p>
+                                <form id="form2" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                    <input type="hidden" name="cmd" value="_s-xclick">
+                                    <input type="hidden" name="hosted_button_id" value="KY55XYFWHFFDG">
+                                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                                    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                                </form>
+                                <p>&nbsp;</p>
+                                @*<input name="Senior" class="button" type="submit" value="PAY NOW" />*@
+                            </div>
+                        </figcaption>
+                    </div>
+                </figure>
+            </li>
+
+            <li>
+                <figure>
+                    <div class="figure-wrapper">
+                        <div class="title-box">
+                            <p>
+                                FAMILY
+                            </p>
+                            <p class="fa fa-caret-down"></p>
+                        </div>
+                        <figcaption>
+                            <div class="description">
+                                Two Cohabiting<br>Adults
+                            </div>
+                            <div class="price">
+                                <span>$</span>90
+                            </div>
+                            <div>
+                                <p>&nbsp;</p>
+                                <form id="form4" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                    <input type="hidden" name="cmd" value="_s-xclick">
+                                    <input type="hidden" name="hosted_button_id" value="HDRX36VWC69PL">
+                                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                                    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                                </form>
+                                <p>&nbsp;</p>
+                                @*<input name="Family" class="button" type="submit" value="PAY NOW" />*@
+                            </div>
+                        </figcaption>
+                    </div>
+                </figure>
+            </li>
+
+            <li>
+                <figure>
+                    <div class="figure-wrapper">
+                        <div class="title-box">
+                            <p> SENIOR<BR>FAMILY </p>
+                            <p class="fa fa-caret-down"></p>
+                        </div>
+                        <figcaption>
+                            <div class="description">
+                                <div class="description">
+                                    Same as Family <br>Minimum one 55+
+                                </div>
+                            </div>
+                            <div class="price">
+                                <span>$</span>60
+                            </div>
+                            <div>
+                                <p>&nbsp;</p>
+                                <form id="form5" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                    <input type="hidden" name="cmd" value="_s-xclick">
+                                    <input type="hidden" name="hosted_button_id" value="UM9CGJ75SH9RQ">
+                                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                                    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                                </form>
+                                <p>&nbsp;</p>
+                                @*<input name="Senior-Family" class="button" type="submit" value="PAY NOW" />*@
+                            </div>
+                        </figcaption> 
+                    </div>
+                </figure>
+            </li>
+
+            <li>
+                <figure>
+                    <div class="figure-wrapper">
+                        <div class="title-box">
+                            <p> STUDENT </p>
+                            <p class="fa fa-caret-down"></p>
+                        </div>
+                        <figcaption>
+                            <div class="description">
+                                With Current<br>Student ID
+                            </div>
+                            <div class="price">
+                                <span>$</span>30
+                            </div>
+                            <div>
+                                <p>&nbsp;</p>
+                                <form id="form6" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                    <input type="hidden" name="cmd" value="_s-xclick">
+                                    <input type="hidden" name="hosted_button_id" value="QSNF8YZWKJ7F8">
+                                    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                                    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                                </form>
+                                <p>&nbsp;</p>
+                                @*<input name="Student" class="button" type="submit" value="PAY NOW" />*@
+                            </div>
+                        </figcaption>
+                    </div>
+                </figure>
+            </li>
+
+            <li>
+                <figure>
+                    <div class="figure-wrapper">
+                        <div class="title-box">
+
+                            <p> DONATE </p>
+                            <p class="fa fa-caret-down"></p>
+                        </div>
+                        <figcaption>
+                            <div class="description">
+                                Donations Always <br> Welcome
+                            </div>
+                            <br>
+                            <div class="price">
+                                Proceed To Set Amount <br> &nbsp; <br>
+                            </div>
+                            <br>
+
+                            <form id="form7" action="/join" target="_self" method="post">
+
+                            <div>
+                                <input name="Donate" class="button-1" type="submit" style="margin :4px;border-radius:3px; height:40px; background-color:green; color:white" value="DONATE" />
+                            </div>
+                           </form>
+
+                            <p>&nbsp;</p>
+                        </figcaption>
+                    </div>
+                </figure>
+            </li>
+
+        </ul>
+    </div>
+
+</section>
+
+
+

@@ -1,0 +1,9 @@
+﻿Group: DallasArt
+FriendlyName: Paid Membership
+SystemName: Paid.Membership
+Version: 1.00
+SupportedVersions: 3.90
+Author: DallasArt Development
+DisplayOrder: 1
+FileName: Nop.Plugin.DallasArt.PaidMembership.dll
+Description: This plug-in provides Paid Membership Roles

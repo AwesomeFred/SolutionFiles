@@ -1,0 +1,28 @@
+﻿
+
+@using Nop.Web.DallasArt
+@using Nop.Web.DallasArt.ViewModels
+@model  List<FadingSlide>
+    
+
+
+@{ var IMAGEPATH = "/Themes/PAA/Content/slideshow/Images"; }
+
+
+
+<div class="bss-slides num1" tabindex="1" autofocus="autofocus">
+
+ 
+
+    @foreach (FadingSlide item in Model )
+    {
+        string path = string.Format("{0}/{1}.png", @IMAGEPATH, item.Title.Replace(" ", "_"));
+
+        <figure>
+            @Html.Image(path , @item.Title )
+            <figcaption> @item.Title <span> @item.FirstName  @item.LastName </span></figcaption>
+        </figure>
+    }
+ 
+</div>
+

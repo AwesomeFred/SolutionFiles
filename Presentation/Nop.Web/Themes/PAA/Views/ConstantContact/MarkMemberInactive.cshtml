@@ -1,0 +1,40 @@
+﻿ 
+@model  IEnumerable<Nop.Web.DallasArt.ViewModels.Customer.MemberListViewModel>
+
+
+@{
+    var x = Model;
+
+    var y = x;
+}
+
+<p>hello</p>
+
+
+
+<table>
+    <tr>
+        <td>
+            FirstName,LastName,StreetAddress,City,State,ZipCode,Email,Phone,Expired
+        </td>
+    </tr>
+
+    @foreach (Nop.Web.DallasArt.ViewModels.Customer.MemberListViewModel member in @Model)
+
+    {
+
+        <tr>
+            <td>
+                @member.FirstName,@member.LastName,@member.StreetAddress,@member.City,@member.State,@member.ZipCode,  @member.Email,         @member.Phone  ,@member.Renewal.ToShortDateString()
+            </td>
+
+
+
+            <td></td>
+        </tr>
+
+    }
+
+
+
+</table>

@@ -1,0 +1,25 @@
+﻿
+@import "reset";
+@import "mixins";
+@import "store";
+@import "store_overides";
+//@import "form-reset";
+@import "variables";
+
+/* this site */
+@import "modal";         
+             
+@import "phone-default";
+
+/* ----------------start media query - medium --------------------*/ 
+ @media only screen and (min-width:$tablet) {    @import "tablet";  }
+  
+/* ----------------start media query - large  --------------------*/
+  @media only screen and (min-width:$desktop) {   @import "desktop"; } 
+
+/* ----------------start media query - large  --------------------*/
+ @media only screen and (min-width:$large) {    @import "large";  }
+
+//@import "form-overides";     
+       
+        

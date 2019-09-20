@@ -1,0 +1,14 @@
+﻿[
+  {
+    "outputFile": "Themes/PAA/Content/css/site-overides.css",
+    "inputFile": "Themes/PAA/Scss/site-overides.scss"
+  },
+  {
+    "outputFile": "Themes/PAA/Content/css/fading-slides.css",
+    "inputFile": "Themes/PAA/Scss/fading-slides.scss"
+  },
+  {
+    "outputFile": "Themes/PAA/Content/css/form-overrides.css",
+    "inputFile": "Themes/PAA/Scss/form-overrides.scss"
+  }
+]

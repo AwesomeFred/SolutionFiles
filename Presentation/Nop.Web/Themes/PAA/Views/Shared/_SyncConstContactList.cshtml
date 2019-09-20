@@ -1,0 +1,33 @@
+﻿@using DallasArt.Models.V_3_9.Models
+@model  IEnumerable<ServiceResponse>
+
+    <style>
+        #ccTable{
+            font-size:0.85rem;
+        }
+
+        .ccFail{
+            color:red;
+            font-weight:700;
+        }
+
+
+    </style>
+
+
+    <table id="ccTable">
+
+        @foreach (ServiceResponse sr in Model)
+        {
+            if (sr.Success)
+            {
+                <tr><td> Updated @sr.Name with @sr.SuccessCount members.</td></tr>
+            }
+            else
+            {
+                <tr><td class="ccFail"> @sr.Name Failed! Error: @sr.ExceptionMessage!</td></tr>
+            }
+
+        }
+
+    </table>

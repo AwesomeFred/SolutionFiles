@@ -1,0 +1,15 @@
+﻿@using DallasArt.ConstantContact
+ 
+@model IEnumerable<ConstantContactMember>
+
+
+@foreach (ConstantContactMember item in @Model)
+    {
+        <tr>
+            <td> @Html.LabelForModel(item.FirstName) </td>
+            <td> @Html.LabelForModel(item.LastName) </td>
+            <td> @Html.LabelForModel(item.Email) </td>
+            <td> @Html.LabelForModel(item.Expired)</td>
+            <td>@Html.LabelForModel(item.MembershipType)</td>
+        </tr>
+    }

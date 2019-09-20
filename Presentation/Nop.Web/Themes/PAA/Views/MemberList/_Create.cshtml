@@ -1,0 +1,460 @@
+﻿@using System.Text
+@model  Nop.Web.DallasArt.Models.PaaMember
+
+@{
+    ViewBag.Title = "New Member";
+
+
+    //string renewalDate = Model.Renewal.ToShortDateString();
+
+    //StringBuilder CustomerRoles = new StringBuilder();
+    //String Delimiter = "";
+
+    //foreach (var role in Model.Roles)
+    //{
+    //    CustomerRoles.Append(Delimiter);
+    //    CustomerRoles.Append(role.Name);
+    //    Delimiter = ", ";
+    //}
+
+}
+
+<style>
+
+    #headline, #headerWrapper {
+        display: none;
+    }
+
+
+    .master-wrapper-content {
+        text-align: left;
+    }
+
+
+
+
+    .details-table {
+        font-size: 1rem;
+        padding: 0;
+        margin: 0;
+    }
+
+        .details-table tr {
+            margin: 0;
+            width: 100%;
+        }
+
+
+            .details-table tr th {
+                padding: 2px 10px 2px 2px;
+                white-space: nowrap;
+                width: 3%;
+                text-align: right;
+            }
+
+
+
+
+    .header-section {
+        width: 33.3%;
+        float: left;
+    }
+
+
+
+    .listing-header {
+        width: 1024px;
+        height: 80px;
+    }
+
+        .listing-header .header-section {
+            width: 33.3%;
+            float: left;
+        }
+
+
+        .listing-header .info-section h3 {
+            font-size: 1.6rem !important;
+            margin: 0 0 4px 0 !important;
+            color: red !important;
+        }
+
+        .listing-header .info-section h4 {
+            margin: 0 0 2px 0 !important;
+            font-size: 1rem !important;
+            font-weight: 700 !important;
+        }
+
+        .listing-header .info-section a {
+            color: blueviolet !important;
+            font-size: 1.3rem;
+        }
+
+            .listing-header .info-section a:hover {
+                text-decoration: underline;
+            }
+
+        .listing-header .sort-section {
+            margin-top: 52px;
+        }
+
+            .listing-header .sort-section select,
+            .listing-header .sort-section span {
+                font-size: 0.8rem !important;
+                height: 26px;
+                padding: 1px;
+            }
+
+
+
+       .control-label{
+           display:none;
+       }
+
+       .form-control{
+           width:400px;
+           border-radius:3px;
+       }
+
+    .form-required {
+        border-color:red!important;
+    }
+     .optional-entries .form-required {
+        border-color: blue !important;
+    }
+
+
+     
+    .create-table{
+        /*border:red solid 1px;*/
+        max-width:1000px;
+    }
+
+    select{
+        border:1px solid red!important;
+    }
+
+    table tr td p {
+       font-size : .8rem;
+    }
+
+    
+    .save-changes {
+        color: white;
+        background-color: green;
+        padding: 10px;
+        width:100px!important;
+    }
+
+
+</style>
+
+
+
+
+ <div class="listing-header">
+
+    <div class="header-section info-section">
+
+        <h3>Staff Dashboard </h3>
+        <h4>Add New Member </h4>
+    
+        @Html.ActionLink("Back to List", "Index")
+
+    </div>
+
+    <div class="header-section sort-section"></div>
+    <div class="header-section partial-section"></div>
+
+
+</div>
+
+
+<hr />
+<div>
+
+    <h3>Registration</h3>
+
+    <article>
+
+        <section class="Identity">
+            <div class="identity-wrapper">
+
+                <table class="create-table">
+
+                    <tr>
+                        <td>
+                            <div class="form-group ">
+                                <div class="form-info">
+                                    @Html.LabelFor(model => model.Email, new { @class = "control-label" }, ":")
+                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger input-error" })
+                                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control form-required", placeholder = "Email" })
+                                </div>
+                            </div>
+                        </td>
+
+                        <td>
+                            <select id="membership">
+                                <option value="-1"> Select Membership Type</option>
+                                <option value="7"> Adult Member</option>
+                                <option value="8"> Senior Member</option>
+                                <option value="6"> Student Member</option>
+                                <option value="9"> Family Member1</option>
+                                <option value="10"> Senior Family Member1</option>
+                                <option value="13"> Honorary Member</option>
+
+
+                            </select>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="form-group ">
+                                <div class="form-info">
+                                    @Html.LabelFor(model => model.FirstName, new { @class = "control-label" }, ":")
+                                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger input-error" })
+                                    @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control  form-required", required = "required", placeholder = "First Name" })
+                                </div>
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="form-group ">
+                                <div class="form-info">
+                                    @Html.LabelFor(model => model.LastName, new { @class = "control-label" }, ":")
+                                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger input-error" })
+                                    @Html.TextBoxFor(model => model.LastName, new { @class = "form-control  form-required", placeholder = "Last Name" })
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <div class="form-group ">
+                                <div class="form-info">
+                                    @Html.LabelFor(model => model.StreetAddress, new { @class = "control-label" }, ":")
+                                    @Html.ValidationMessageFor(model => model.StreetAddress, "", new { @class = "text-danger input-error" })
+                                    @Html.TextBoxFor(model => model.StreetAddress, new { @class = "form-control  form-required", placeholder = "Address" })
+                                </div>
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="form-group ">
+                                <div class="form-info">
+                                    @Html.LabelFor(model => model.City, new { @class = "control-label" }, ":")
+                                    @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger input-error" })
+                                    @Html.TextBoxFor(model => model.City, new { @class = "form-control  form-required", placeholder = "City" })
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="form-group ">
+                                <div class="form-info">
+                                    <select class="form-control" data-val="true" data-val-number="The field State / province must be a number." data-val-required="&#39;State Province Id&#39; must not be empty." id="StateProvinceId" name="StateProvinceId">
+                                        <option value="0">Select state</option>
+                                        <option value="1">AA (Armed Forces Americas)</option>
+                                        <option value="2">AE (Armed Forces Europe)</option>
+                                        <option value="3">Alabama</option>
+                                        <option value="4">Alaska</option>
+                                        <option value="5">American Samoa</option>
+                                        <option value="6">AP (Armed Forces Pacific)</option>
+                                        <option value="7">Arizona</option>
+                                        <option value="8">Arkansas</option>
+                                        <option value="9">California</option>
+                                        <option value="10">Colorado</option>
+                                        <option value="11">Connecticut</option>
+                                        <option value="12">Delaware</option>
+                                        <option value="13">District of Columbia</option>
+                                        <option value="14">Federated States of Micronesia</option>
+                                        <option value="15">Florida</option>
+                                        <option value="16">Georgia</option>
+                                        <option value="17">Guam</option>
+                                        <option value="18">Hawaii</option>
+                                        <option value="19">Idaho</option>
+                                        <option value="20">Illinois</option>
+                                        <option value="21">Indiana</option>
+                                        <option value="22">Iowa</option>
+                                        <option value="23">Kansas</option>
+                                        <option value="24">Kentucky</option>
+                                        <option value="25">Louisiana</option>
+                                        <option value="26">Maine</option>
+                                        <option value="27">Marshall Islands</option>
+                                        <option value="28">Maryland</option>
+                                        <option value="29">Massachusetts</option>
+                                        <option value="30">Michigan</option>
+                                        <option value="31">Minnesota</option>
+                                        <option value="32">Mississippi</option>
+                                        <option value="33">Missouri</option>
+                                        <option value="34">Montana</option>
+                                        <option value="35">Nebraska</option>
+                                        <option value="36">Nevada</option>
+                                        <option value="37">New Hampshire</option>
+                                        <option value="38">New Jersey</option>
+                                        <option value="39">New Mexico</option>
+                                        <option value="40">New York</option>
+                                        <option value="41">North Carolina</option>
+                                        <option value="42">North Dakota</option>
+                                        <option value="43">Northern Mariana Islands</option>
+                                        <option value="44">Ohio</option>
+                                        <option value="45">Oklahoma</option>
+                                        <option value="46">Oregon</option>
+                                        <option value="47">Palau</option>
+                                        <option value="48">Pennsylvania</option>
+                                        <option value="49">Puerto Rico</option>
+                                        <option value="50">Rhode Island</option>
+                                        <option value="51">South Carolina</option>
+                                        <option value="52">South Dakota</option>
+                                        <option value="53">Tennessee</option>
+                                        <option selected="selected" value="54">Texas</option>
+                                        <option value="55">Utah</option>
+                                        <option value="56">Vermont</option>
+                                        <option value="57">Virgin Islands</option>
+                                        <option value="58">Virginia</option>
+                                        <option value="59">Washington</option>
+                                        <option value="60">West Virginia</option>
+                                        <option value="61">Wisconsin</option>
+                                        <option value="62">Wyoming</option>
+                                    </select>
+
+                                </div>
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="form-group ">
+                                <div class="form-info">
+                                    @Html.LabelFor(model => model.ZipCode, new { @class = "control-label" }, ":")
+                                    @Html.ValidationMessageFor(model => model.ZipCode, "", new { @class = "text-danger input-error" })
+                                    @Html.TextBoxFor(model => model.ZipCode, new { @class = "form-control  form-required", placeholder = "Zip" })
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                            <div class="form-group ">
+                                <div class="form-info">
+                                    @Html.LabelFor(model => model.Company, new { @class = "control-label" }, ":")
+                                    @Html.ValidationMessageFor(model => model.Company, "", new { @class = "text-danger input-error" })
+                                    @Html.TextBoxFor(model => model.Company, new { @class = "form-control  ", placeholder = "Company" })
+                                </div>
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="form-group ">
+                                <div class="form-info">
+                                    @Html.LabelFor(model => model.Url, new { @class = "control-label" }, ":")
+                                    @Html.ValidationMessageFor(model => model.Url, "", new { @class = "text-danger input-error" })
+                                    @Html.TextBoxFor(model => model.Url, new { @class = "form-control  ", placeholder = "Member Website" })
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+
+
+                    <tr class="optional-entries">
+                        <td>
+                            <p style="font-size:0.8rem">  Second Family Member Information - Required When Entering <br> Family Membership or Senior Family Membership </p>
+                        </td>
+                        <td>
+                            <div class="form-info">
+                                @Html.LabelFor(model => model.PartnerFirstName, new { @class = "control-label" }, ":")
+                                @Html.ValidationMessageFor(model => model.PartnerFirstName, "", new { @class = "text-danger input-error" })
+                                @Html.TextBoxFor(model => model.PartnerFirstName, new { @class = "form-control form-required ", placeholder = "Partner First Name" })
+                            </div>
+                        </td>
+
+
+                    </tr>
+
+                    <tr class="optional-entries">
+                        <td>
+                            <div class="form-group ">
+                                <div class="form-group ">
+                                    <div class="form-info">
+                                        @Html.LabelFor(model => model.PartnerEmail, new { @class = "control-label" }, ":")
+                                        @Html.ValidationMessageFor(model => model.PartnerEmail, "", new { @class = "text-danger input-error" })
+                                        @Html.TextBoxFor(model => model.PartnerEmail, new { @class = "form-control form-required ", placeholder = "Partmer Email Address" })
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="form-group ">
+                                <div class="form-info">
+                                    @Html.LabelFor(model => model.PartnerLastName, new { @class = "control-label" }, ":")
+                                    @Html.ValidationMessageFor(model => model.PartnerLastName, "", new { @class = "text-danger input-error" })
+                                    @Html.TextBoxFor(model => model.PartnerLastName, new { @class = "form-control  form-required ", placeholder = "Partner Last Name" })
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+
+                    <tr><td colspan="2" align="center">   <input width="100" class="save-changes" type="button" value="Save" /></td></tr>
+
+
+
+                </table>
+            </div>
+
+        </section>
+
+    </article>
+
+
+
+
+
+
+
+    @*<table class="details-table">
+
+            <tr><th> @Html.DisplayNameFor(model => model.Email): </th>        <td>@Html.DisplayFor(model => model.Email)</td><th>Member</th></tr>
+            <tr><th> @Html.DisplayNameFor(model => model.FirstName):</th>     <td>@Html.DisplayFor(model => model.FirstName)</td><th></th></tr>
+            <tr><th> @Html.DisplayNameFor(model => model.LastName):</th>      <td>@Html.DisplayFor(model => model.LastName)</td><th></th></tr>
+            <tr><th> @Html.DisplayNameFor(model => model.Company):</th>       <td>@Html.DisplayFor(model => model.Company)</td><th></th></tr>
+            <tr><th> @Html.DisplayNameFor(model => model.StreetAddress):</th> <td>@Html.DisplayFor(model => model.StreetAddress)</td><th></th></tr>
+            <tr><th> @Html.DisplayNameFor(model => model.City):</th>          <td>@Html.DisplayFor(model => model.City)</td><th></th></tr>
+            <tr><th> @Html.DisplayNameFor(model => model.State):</th>         <td>@Html.DisplayFor(model => model.State)</td><th></th></tr>
+            <tr><th> @Html.DisplayNameFor(model => model.ZipCode):</th>       <td>@Html.DisplayFor(model => model.ZipCode)</td><th></th></tr>
+            <tr><th> @Html.DisplayNameFor(model => model.Phone):</th>         <td>@Html.DisplayFor(model => model.Phone)</td><th></th></tr>
+            <tr><th> @Html.DisplayNameFor(model => model.Url):</th>           <td>@Html.DisplayFor(model => model.Url)</td><th></th></tr>
+
+            <tr><th colspan="3"><hr></th></tr>
+            <tr><th> @Html.DisplayNameFor(model => model.Status):</th>       <td>@Html.DisplayFor(model => model.Status.Value)</td><th>Membership</th></tr>
+            <tr><th> @Html.DisplayNameFor(model => model.Renewal):</th>       <td>@renewalDate </td><th></th></tr>
+            <tr><th> @Html.DisplayNameFor(model => model.Roles):</th>         <td>@CustomerRoles.ToString()</td><th></th></tr>
+
+            <tr><th colspan="3"><hr></th></tr>
+            <tr><th> @Html.DisplayNameFor(model => model.PartnerEmail):</th>       <td>@Html.DisplayFor(model => model.PartnerEmail)</td><th>Family Member</th></tr>
+            <tr><th> @Html.DisplayNameFor(model => model.PartnerFirstName):</th>         <td>@Html.DisplayFor(model => model.PartnerFirstName) </td><th></th></tr>
+            <tr><th> @Html.DisplayNameFor(model => model.PartnerLastName):</th>           <td>@Html.DisplayFor(model => model.PartnerLastName)</td><th></th></tr>
+
+            <tr><th colspan="3"><hr></th></tr>
+
+            <tr><th> @Html.DisplayNameFor(model => model.HomePageApproval):</th>  <td>@Html.DisplayFor(model => model.HomePageApproval)</td><th>Front Page Status</th></tr>
+            <tr><th> @Html.DisplayNameFor(model => model.ArtWork):</th>           <td>@Html.DisplayFor(model => model.ArtWork)</td><th></th></tr>
+            <tr><th> @Html.DisplayNameFor(model => model.ArtWorkTitle):</th>           <td>@Html.DisplayFor(model => model.ArtWorkTitle)</td><th></th></tr>
+
+
+
+        </table>*@
+    <hr>
+    <p>&nbsp;  RED - Required | BLUE - Family Type Memberships | GRAY - Optional  </p>
+
+
+</div>

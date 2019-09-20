@@ -1,0 +1,108 @@
+﻿
+@using Nop.Web.DallasArt.Models
+@model  IList<PaaMember>
+
+
+@using Nop.Web.DallasArt.ViewModels.Customer
+@{
+    ViewBag.Title = "ExecMembersListing";
+    ViewBag.Id = "ExecMembersListing";
+    ViewBag.PageTitle = "ExecMembersListing";
+}
+
+
+
+<style>
+
+    table {
+        width: 900px;
+        margin-top: -30px;
+    }
+
+    td > a {
+        font-weight: normal;
+        color: #999 !important;
+    }
+
+    table a:hover {
+        text-decoration: underline !important;
+    }
+
+    th, td {
+        font-size: 1.1rem;
+    }
+
+    td {
+        padding: 2px 10px;
+    }
+
+    th {
+        color: #FF7F50;
+        padding: 12px 10px 8px;
+        text-align: left;
+        font-weight: 600;
+    }
+
+    tr:nth-child(odd) {
+        background-color: #f5f5f5;
+    }
+
+    tr:nth-child(1) {
+        background-color: black;
+    }
+</style>
+
+
+
+
+<section>
+    @*<h1>About</h1>*@
+
+
+
+    <article>
+
+        <table>
+            <tr>
+                <th>First Name,Last Name, Street,City,State,zip,,Email, Phone,Expired</th>
+
+            </tr>
+            @*<tr>
+                    <th colspan="3"> <hr /> <td>
+                </tr>*@
+
+
+            @foreach (PaaMember member in @Model)
+
+            {
+
+                <tr>
+                    <td>
+                        ,@member.FirstName,@member.LastName,@member.StreetAddress,@member.City,@member.State,@member.ZipCode,,@member.Email , @member.Phone,  ,@member.Renewal.ToShortDateString()
+                    </td>
+
+
+                    @*<td>
+                                            @if (member.Url != null && member.Url.Length > 5)
+                                {
+                                    <a target="_blank" href="//@member.Url">@member.Url</a>
+                        }
+
+
+
+                                        </td>*@
+                    <td></td>
+                </tr>
+
+            }
+
+        </table>
+
+
+    </article>
+
+
+
+
+
+</section>

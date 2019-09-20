@@ -1,0 +1,249 @@
+﻿@using Nop.Core.Domain;
+@using Nop.Core.Domain.Common;
+@using Nop.Core.Domain.Seo
+@using Nop.Core.Infrastructure;
+@using Nop.Services.Security;
+@{
+    var storeSettings = EngineContext.Current.Resolve<StoreInformationSettings>();
+    var permissionService = EngineContext.Current.Resolve<IPermissionService>();
+    var displayMiniProfiler = storeSettings.DisplayMiniProfilerInPublicStore
+        && (!storeSettings.DisplayMiniProfilerForAdminOnly || permissionService.Authorize(StandardPermissionProvider.AccessAdminPanel));
+    //resources
+    Html.AppendCssFileParts("~/Themes/PAA/Content/FineUploader/css/fine-uploader-new-PAA.css");
+    Html.AppendCssFileParts("~/Content/jquery-ui-themes/smoothness/jquery-ui-1.10.3.custom.min.css");
+
+
+    <!--  local scripts -->
+    Html.AppendScriptParts("~/Themes/PAA/Content/slideshow/scripts/better-simple-slideshow.min.js");
+    Html.AppendScriptParts("~/Themes/PAA/Content/slideshow/scripts/hammer.min.js");
+
+
+    Html.AppendScriptParts("~/Themes/PAA/Content/js/custom.js");
+
+    Html.AppendScriptParts("~/themes/paa/Content/FineUploader/scripts/jquery.fine-uploader.min.js");
+    Html.AppendScriptParts("~/Themes/PAA/Content/js/bootstrap.min.js");
+    Html.AppendScriptParts("~/Scripts/jquery.unobtrusive-ajax.min.js");
+    Html.AppendScriptParts("~/Scripts/public.ajaxcart.js");
+    Html.AppendScriptParts("~/Scripts/public.common.js");
+    Html.AppendScriptParts("~/Scripts/jquery-migrate-1.2.1.min.js");
+    Html.AppendScriptParts("~/Scripts/jquery-ui-1.10.3.custom.min.js");
+    Html.AppendScriptParts("~/Scripts/jquery.validate.unobtrusive.min.js");
+    Html.AppendScriptParts("~/Scripts/jquery.validate.min.js");
+    Html.AppendScriptParts("~/Scripts/jquery-1.10.2.min.js");
+    Html.AppendScriptParts("~/Themes/PAA/Content/js/head.min.js");
+
+    ///X-UA-Compatible tag
+    var commonSettings = EngineContext.Current.Resolve<CommonSettings>();
+    if (commonSettings.RenderXuaCompatible)
+    {
+        Html.AppendHeadCustomParts(string.Format("<meta http-equiv=\"X-UA-Compatible\" content=\"{0}\"/>", commonSettings.XuaCompatibleValue));
+    }
+    //custom tag(s)
+    var seoSettings = EngineContext.Current.Resolve<SeoSettings>();
+    if (!string.IsNullOrEmpty(seoSettings.CustomHeadTags))
+    {
+        Html.AppendHeadCustomParts(seoSettings.CustomHeadTags);
+    }
+        }
+<!DOCTYPE html>
+<html Lang="en">
+<head>
+
+<script type="text/javascript">
+<!--
+
+if (self != top)
+   {
+   top.location.href = self.location;href;
+   }
+
+//-->
+</script>
+
+
+    <title>PAA: @ViewBag.Title</title>
+
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+
+    @*<meta name="description" content="@(Html.NopMetaDescription())" />
+
+        <meta name="keywords" content="@(Html.NopMetaKeywords())" />*@
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="generator" content="nopCommerce" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+    <meta content="Plano Art Association " name="description">
+    <meta content="DallasArt Content Management System ©2011-2017 http://www.DallasArt.com " name="generator" />
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="canonical" href="http://www.planoartassociation.com/" />
+    <!-- <meta name="google-site-verification" content="sNFYnQjC6QVe6zfxenZbW5uxKsKGe3yAD1go26Uw5bc" /> -->
+
+    @Html.NopHeadCustom()
+    @*This is used so that themes can inject content into the header*@
+    @Html.Partial("Head")
+    @Html.Widget("head_html_tag")
+    @Html.NopCssFiles(this.Url, ResourceLocation.Head)
+    @Html.NopScripts(this.Url, ResourceLocation.Head)
+    @Html.NopCanonicalUrls()
+    @Html.Action("RssHeaderLink", "News")
+    @Html.Action("RssHeaderLink", "Blog")
+    @*Favicon - upload favicon.ico file to the root directory*@
+  @Html.Action("Favicon", "Common")
+    @if (displayMiniProfiler)
+    {
+        @StackExchange.Profiling.MiniProfiler.RenderIncludes()
+    }
+
+
+ 
+    <!--[if lt IE 9]>
+           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body id="@ViewBag.Id">
+    <div id="wrapper">
+
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser.
+                Please <a href="http://browsehappy.com/">upgrade your browser</a> or
+                <a href="http://www.google.com/chromeframe/?redirect=true">
+                    activate Google Chrome Frame
+                </a> to improve your experience.</p>
+        <![endif]-->
+        <!-- PAGE NAVIGATION GOES HERE -->
+        <style type="text/css">
+            .active {
+                background-color: transparent !important;
+            }
+        </style>
+
+        @Html.Partial("_PageNavigation")
+
+        <!-- PAGE HEADER GOES HERE -->
+
+        <header>
+
+            <div class="master-wrapper-page">
+                @Html.Action("AdminHeaderLinks", "Common")
+                @Html.Partial("Header")
+            </div>
+
+            <div id="headerWrapper">
+                <figure class="paa-logo">
+                    <img src="~/Themes/PAA/Content/siteimages/PAA-Logo-Header.png" alt="PAA logo" />
+                </figure>
+            </div>
+
+
+        </header>
+
+
+
+
+        <!-- HEADLINE CONTENT GOES HERE -->
+
+        <div id="headline">
+            <h1>@ViewBag.Headline</h1>
+        </div>
+
+
+
+
+
+        <!-- PAGE CONTENT GOES HERE -->
+
+        <main class="pageContent">
+
+            <div id="mainWrapper">
+
+                @RenderBody()
+
+            </div>
+        </main>
+
+        <!-- PAGE FOOTER GOES HERE -->
+        <footer>
+
+            <div class="footer-wrapper">
+
+                <p>
+                    <a href="https://www.facebook.com/PlanoArtAssociation" target="_blank" alt="facebook">
+                        <img src="~/Themes/PAA/Content/siteimages/facebook-logo.jpg" />
+                    </a> &nbsp;&nbsp;
+
+
+
+                    &copy; Plano Art Association &nbsp;&nbsp; <br> <a href="mailto:Info@PlanoArtAssociation.org">Info@PlanoArtAssociation.org </a>
+                </p>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Future MOdals -->
+    @*@Html.Partial("_calendarModal")*@
+
+    @*@Html.Partial("_galleryModal")*@
+
+    @*@Html.Partial("_newsModal")*@
+
+
+
+    <script type="text/javascript">
+
+                                //    var path = FRONTPAGEIMAGEPATH;
+                                //    var array = FRONTPAGEARRAY;
+
+
+
+
+                                // image pre-load
+                                //     if (FRONTPAGEARRAY !== null) {
+                                //         $(FRONTPAGEARRAY).each(function () { (new Image()).src = FRONTPAGEIMAGEPATH + this; });
+                                //     }
+
+
+                                //$(document).ready(function () {
+
+                                //    // start slide show
+                                //    slideShow();
+
+
+                                //});
+
+
+
+                                //// slide show driver
+                                //var curIndex = 0;
+                                //var imgDuration = 6000;
+
+
+                                //// home page
+                                //function slideShow() {
+                                //    return;
+
+                                //    $("#slider").addClass("fadeOut");
+
+                                //    setTimeout(function () {
+                                //        $("#slider").attr("src", path + array[curIndex]).removeClass("fadeOut");
+                                //    }, 1000);
+
+                                //    curIndex++;
+
+                                //    if (curIndex === array.length) { curIndex = 0; }
+                                //    setTimeout(slideShow, imgDuration);
+                                //}
+
+
+
+
+
+    </script>
+</body>
+</html>
+

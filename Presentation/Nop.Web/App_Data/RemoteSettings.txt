@@ -1,0 +1,2 @@
+DataProvider: sqlserver
+DataConnectionString: Data Source=68.66.211.73;Initial Catalog=PAA_DA_Admin;Integrated Security=False;Persist Security Info=False;User ID=Paa_Admin;Password=Defender01 

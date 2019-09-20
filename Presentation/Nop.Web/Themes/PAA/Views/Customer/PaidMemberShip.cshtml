@@ -1,0 +1,318 @@
+﻿
+
+@model DallasArt.Models.Models.PaaMember
+ 
+
+@{
+    Layout = "~/Views/Shared/_ColumnsOne.cshtml";
+
+    //title
+    Html.AddTitleParts(T("PageTitle.Register").Text);
+    //page class
+    Html.AppendPageCssClassParts("html-registration-page");
+
+}
+
+
+
+@using (@Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <h2>Join or Renew</h2>
+    <p>
+        
+        &nbsp;
+    
+    
+    
+    </p>
+
+     
+
+
+
+    <main class="identity">
+        <div class=idenity-wrapper>
+
+            <section>
+                <div class="form-section">
+
+                    <P>Tell us about yourself -</P>
+                    <!-- name -->
+                    <div class="form-group">
+
+                        <div class="form-info">
+                            @Html.LabelFor(model => model.RegisterModel.FirstName, new { @class = "control-label" }, ":")
+                            @Html.ValidationMessageFor(model => model.RegisterModel.FirstName, "", new { @class = "text-danger input-error" })
+                            @Html.TextBoxFor(model => model.RegisterModel.FirstName, new { @class = "form-control", required = "required", placeholder = "First Name" })
+                            @Html.RequiredHint()
+                        </div>
+
+                        <div class="form-info">
+                            @Html.LabelFor(model => model.RegisterModel.LastName, new { @class = "control-label" }, ":")
+                            @Html.ValidationMessageFor(model => model.RegisterModel.LastName, "", new { @class = "text-danger input-error" })
+                            @Html.TextBoxFor(model => model.RegisterModel.LastName, new { @class = "form-control", required = "required", placeholder = "Last Name" })
+                            @Html.RequiredHint()
+                        </div>
+
+                    </div>
+
+                    <!-- email -->
+                    <div class="form-group">
+
+                        <div class="form-info">
+                            @Html.LabelFor(model => model.RegisterModel.Email, new { @class = "control-label" }, ":")
+                            @Html.ValidationMessageFor(model => model.RegisterModel.Email, "", new { @class = "text-danger input-error" })
+                            @Html.TextBoxFor(model => model.RegisterModel.Email, new { @class = "form-control", required = "required", placeholder = "Your Email Address", type = "email" })
+                            @Html.RequiredHint()
+                        </div>
+
+                        <div class="form-info">
+                            @Html.LabelFor(model => model.RegisterModel.ConfirmEmail, new { @class = "control-label" }, ":")
+                            @Html.ValidationMessageFor(model => model.RegisterModel.ConfirmEmail, "", new { @class = "text-danger input-error" })
+                            @Html.TextBoxFor(model => model.RegisterModel.ConfirmEmail, new { @class = "form-control nopaste", placeholder = "Confirm Your Email Address", type = "email" })
+                            @Html.RequiredHint()
+                        </div>
+                    </div>
+
+
+
+                    <!-- phone -->
+                    <div class="form-group">
+
+                        <div class="form-info">
+
+
+
+                            @*@Html.LabelFor(model => model.RegisterModel.Phone, new { @class = "control-label" }, ":")
+                            @Html.ValidationMessageFor(model => model.RegisterModel.Email, "", new { @class = "text-danger input-error" })*@
+                            @Html.CheckBoxFor(model => model.Renewal, new { @checked = "checked",  @class = "form-control", style = "width:37px;  border-radus:0;      "        })
+                         
+                            
+
+                             <div style="margin: -30px 0 0 58px; font-size:0.8rem;"> Check For Renewal - <span id="renewid"> You will need your current password </span></div>
+
+                            @*@Html.RequiredHint()*@
+                        </div>
+
+                        <div class="form-info">
+                            @Html.LabelFor(model => model.RegisterModel.Company, new { @class = "control-label" }, ":")
+                            @Html.ValidationMessageFor(model => model.RegisterModel.Company, "", new { @class = "text-danger input-error" })
+                            @Html.TextBoxFor(model => model.RegisterModel.Company, new { @class = "form-control", placeholder = "Company (Optional)" })
+                            @Html.RequiredHint()
+                        </div>
+                    </div>
+
+
+                    <!-- password -->
+                    <div class="form-group">
+
+                        <div class="form-info">
+                            @Html.LabelFor(model => model.RegisterModel.Password, new { @class = "control-label" }, ":")
+                            @Html.ValidationMessageFor(model => model.RegisterModel.Password, "", new { @class = "text-danger input-error" })
+                            @Html.TextBoxFor(model => model.RegisterModel.Password, new { @class = "form-control", required = "required", placeholder = "Password", type = "password" })
+                            @Html.RequiredHint()
+                        </div>
+
+                        <div class="form-info">
+                            @Html.LabelFor(model => model.RegisterModel.ConfirmPassword, new { @class = "control-label" }, ":")
+                            @Html.ValidationMessageFor(model => model.RegisterModel.ConfirmPassword, "", new { @class = "text-danger input-error" })
+                            @Html.TextBoxFor(model => model.RegisterModel.ConfirmPassword, new { @class = "form-control nopaste", placeholder = "Confirm Password", type = "password" })
+                            @Html.RequiredHint()
+                        </div>
+
+                    </div>
+
+                </div>
+            </section>
+
+
+            <section>
+                <div class="form-section">
+
+                    <P>Tell us about your family member. We'll sent them an invitation email. -</P>
+                    <!-- name -->
+                    <div class="form-group">
+
+                        <div class="form-info">
+                            @Html.LabelFor(model => model.FamilyMember.FirstName, new { @class = "control-label" }, ":")
+                            @Html.ValidationMessageFor(model => model.FamilyMember.FirstName, "", new { @class = "text-danger input-error" })
+                            @Html.TextBoxFor(model => model.FamilyMember.FirstName, new { @class = "form-control", required = "required", placeholder = "First Name" })
+                            @Html.RequiredHint()
+                        </div>
+
+                        <div class="form-info">
+                            @Html.LabelFor(model => model.FamilyMember.LastName, new { @class = "control-label" }, ":")
+                            @Html.ValidationMessageFor(model => model.FamilyMember.LastName, "", new { @class = "text-danger input-error" })
+                            @Html.TextBoxFor(model => model.FamilyMember.LastName, new { @class = "form-control", placeholder = "Last Name" })
+                            @Html.RequiredHint()
+                        </div>
+
+                    </div>
+
+                    <!-- email -->
+                    <div class="form-group">
+
+                        <div class="form-info">
+                            @Html.LabelFor(model => model.FamilyMember.Email, new { @class = "control-label" }, ":")
+                            @Html.ValidationMessageFor(model => model.FamilyMember.Email, "", new { @class = "text-danger input-error" })
+                            @Html.TextBoxFor(model => model.FamilyMember.Email, new { @class = "form-control", required = "required", placeholder = "Family Member Email", type = "email" })
+                            @Html.RequiredHint()
+                        </div>
+
+                        <div class="form-info">
+                            @Html.LabelFor(model => model.FamilyMember.ConfirmEmail, new { @class = "control-label" }, ":")
+                            @Html.ValidationMessageFor(model => model.FamilyMember.ConfirmEmail, "", new { @class = "text-danger input-error" })
+                            @Html.TextBoxFor(model => model.FamilyMember.ConfirmEmail, new { @class = "form-control", placeholder = "Confirm Family Member Email", type = "email" })
+                            @Html.RequiredHint()
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </section>
+
+
+
+            <section>
+                <div class="form-section">
+
+                    <P>Your address information -</P>
+                    <!-- name -->
+                    <div class="form-group">
+
+                        <div class="form-info">
+                            @Html.LabelFor(model => model.RegisterModel.StreetAddress, new { @class = "control-label" }, ":")
+                            @Html.ValidationMessageFor(model => model.RegisterModel.StreetAddress, "", new { @class = "text-danger input-error" })
+                            @Html.TextBoxFor(model => model.RegisterModel.StreetAddress, new { @class = "form-control", required = "required", placeholder = "Street Address" })
+                            @Html.RequiredHint()
+                        </div>
+
+                        <div class="form-info">
+                            @Html.LabelFor(model => model.RegisterModel.City, new { @class = "control-label" }, ":")
+                            @Html.ValidationMessageFor(model => model.RegisterModel.City, "", new { @class = "text-danger input-error" })
+                            @Html.TextBoxFor(model => model.RegisterModel.City, new { @class = "form-control", placeholder = "City" })
+                            @Html.RequiredHint()
+                        </div>
+
+                    </div>
+
+
+                    <!-- state / zip -->
+                    <div class="form-group">
+
+                        <div class="form-info">
+
+                            @Html.LabelFor(model => model.RegisterModel.StateProvinceId, new { @class = "control-label" }, ":")
+                            @Html.ValidationMessageFor(model => model.RegisterModel.StateProvinceId, "", new { @class = "text-danger input-error" })
+                            @Html.DropDownList("StateProvinceId", Model.RegisterModel.AvailableStates, new { @class = "form-control", placeholder = "Select State" })
+                            @Html.RequiredHint()
+                        </div>
+
+                        <div class="form-info">
+                            @Html.LabelFor(model => model.RegisterModel.ZipPostalCode, new { @class = "control-label" }, ":")
+                            @Html.ValidationMessageFor(model => model.RegisterModel.ZipPostalCode, "", new { @class = "text-danger input-error" })
+                            @Html.TextBoxFor(model => model.RegisterModel.ZipPostalCode, new { @class = "form-control", placeholder = "Zip Code" })
+                            @Html.RequiredHint()
+                        </div>
+                    </div>
+
+
+
+                    <!-- phone -->
+                    <div class="form-group">
+
+                        <div class="form-info">
+                            @Html.LabelFor(model => model.RegisterModel.Phone, new { @class = "control-label" }, ":")
+                            @Html.ValidationMessageFor(model => model.RegisterModel.Phone, "", new { @class = "text-danger input-error" })
+                            @Html.TextBoxFor(model => model.RegisterModel.Phone, new { @class = "form-control", required = "required", placeholder = "Phone", type = "tel" })
+                            @Html.RequiredHint()
+                        </div>
+
+                        <div class="form-info">
+                            @Html.LabelFor(model => model.MemberUrl, new { @class = "control-label" }, ":")
+                            @Html.ValidationMessageFor(model => model.MemberUrl, "", new { @class = "text-danger input-error" })
+                            @Html.TextBoxFor(model => model.MemberUrl, new { @class = "form-control", placeholder = "WebSite (Optional)", type = "url" })
+                            @Html.RequiredHint()
+                        </div>
+
+                    </div>
+
+
+
+
+
+                    <!-- phone -->
+                    <div class="form-group">
+
+
+                      
+
+
+                        <div class="form-info">
+                            <input type="submit" value="Submit Request" class="form-control" />
+                        </div>
+
+                    </div>
+               </div>
+</section>
+
+
+
+            @*@Html.LabelFor(model => model.RegisterModel.Phone, new { @class = "control-label" }, ":")
+        @Html.ValidationMessageFor(model => model.RegisterModel.Email, "", new { @class = "text-danger input-error" })
+        @Html.TextBoxFor(model => model.RegisterModel.Email, new { @class = "form-control", required = "required", placeholder = "Phone" })
+        @Html.RequiredHint()*@
+
+
+
+            <script>
+
+           
+
+                $(document).ready(function () {
+
+                    $('.nopaste').bind('copy paste', function (e) { e.preventDefault(); });
+
+
+                    $('#Renewal').click(    function () { RenewalToggle(  $(this) )} )
+
+
+
+                });
+
+
+                function RenewalToggle(loc) {
+
+
+
+
+                      $(loc).prop("checked" , "checked")
+
+
+
+
+                    alert($(loc).attr("checked").val() ));
+
+
+
+                }
+
+
+            </script>
+
+
+            
+
+
+
+
+        </div>
+    </main>
+
+
+
+}

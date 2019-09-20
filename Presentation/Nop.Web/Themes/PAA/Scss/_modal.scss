@@ -1,0 +1,149 @@
+﻿.main-wrapper {
+    position: relative;
+}
+
+.modal-emailUpdate {
+    display: none;
+    position: absolute;
+    z-index: 1000;
+    width: 95%;
+    margin: 135px 0 0 -5px;
+    background: white;
+    border-bottom: 1px solid #aaa;
+    border-radius: 4px;
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-clip: padding-box;
+
+    .modal-header {
+        padding: 1em 1.5em;
+        border-bottom: 1px solid #ddd;
+
+        h3, h4 {
+            text-align: center;
+            margin: 0;
+        }
+    }
+
+    header,
+    .modal-header {
+        padding: 1em 1.5em;
+        border-bottom: 1px solid #ddd;
+
+        h3, h4 {
+            text-align: center;
+            margin: 0;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+       
+    }
+
+
+
+
+
+
+
+    footer,
+    .modal-footer {
+        padding: 1em;
+        border-top: 1px solid #ddd;
+        background: rgba(0, 0, 0, 0.02);
+        text-align: right;
+        width: 100%;
+        display: block;
+    }
+}
+
+
+.modal-overlay {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9) !important;
+}
+
+
+.modal-emailUpdate-request-link {
+    position: relative;
+    text-align: center !important;
+}
+
+.modal-close-button {
+    font-size: 0.8em;
+    padding: 0.75em 1.5em !important;
+    background-color: #fff;
+    border: 1px solid #bbb;
+    color: #333;
+    text-decoration: none;
+    display: inline;
+    border-radius: 4px !important;
+    -webkit-transition: background-color 1s ease;
+    -moz-transition: background-color 1s ease;
+    transition: background-color 1s ease;
+}
+
+.modal-close-button:hover {
+    background-color: #ddd;
+    -webkit-transition: background-color 1s ease;
+    -moz-transition: background-color 1s ease;
+    transition: background-color 1s ease;
+}
+
+
+
+#modal-emailUpdate-request-link {
+    width: 80%;
+    margin: 20px auto;
+    display: inline-block;
+    font-size: 1.2rem;
+    color: #800c80;
+    font-weight: 700;
+}
+
+#modal-emailUpdate-request-link:hover {
+    text-decoration: underline;
+}
+
+
+.close {
+    display: block;
+    line-height: 1;
+    font-size: 2em;
+    position: absolute;
+    top: 5%;
+    right: 2%;
+    text-decoration: none;
+    color: red !important;
+    /*#bbb;*/
+    :hover {
+        color: #222;
+        -webkit-transition: color 1s ease;
+        -moz-transition: color 1s ease;
+        transition: color 1s ease;
+    }
+}
+
+
+.nav-slider-wrapper h3 {
+    visibility: visible !important
+}
+
+
+
+
+@media (min-width: 32em) {
+
+    .modal-emailUpdate {
+        /* width: 70%; */
+    }
+}

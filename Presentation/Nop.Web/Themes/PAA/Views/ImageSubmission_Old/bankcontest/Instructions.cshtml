@@ -1,0 +1,297 @@
+﻿
+@using Nop.Web.Themes.PAA.ViewModels
+@model  RegistrationViewModel
+
+@{
+    Layout = "~/Views/Shared/_ColumnsOne.cshtml";
+    //title
+    Html.AddTitleParts(T("PageTitle.Register").Text);
+    //page class
+    Html.AppendPageCssClassParts("html-entry-instruction-page");
+
+
+}
+
+
+<style>
+
+    /*.phoneHidden ul {
+        margin-left: 0 !important;
+    } 
+
+    .phoneHidden ul li {
+
+        padding: 0;
+        margin: 0;
+        margin-right: 1.3rem;
+    }*/
+   
+
+
+    p, li {
+        margin-bottom: 1rem;
+        font-size: 1.2rem !important;
+        color: #333 !important;
+    }
+
+
+    li {
+        margin-left: 3rem;
+        margin-bottom: .5rem;
+        text-indent: -14px;
+    }
+
+    
+    .left-side {
+        border: 1px solid #c1c1c1;
+        border-radius: 8px;
+        float: left;
+      /*  height: 500px; */
+        margin: 1rem 1rem 0 0;
+        width: 85%;
+        padding: 2% 4%;
+    }
+
+
+        .left-side h3 {
+            margin-left: -.02rem !important;
+        }
+
+        .left-side p {
+            font-size: 1rem;
+        }
+
+        .left-side a {
+            color: #9400d3 !important;
+        }
+
+        .left-side #register-button a {
+            color: white !important;
+            text-align: center;
+        }
+
+         form {
+             display: block;
+             background-color: #ddd;
+             padding: 2%;
+             overflow: auto;
+
+         }
+
+         p{ padding-left: 20px;}
+
+            p.pickup {
+                color: red !important;
+                font-weight: bolder!important;
+            }
+
+
+           
+            
+
+
+
+</style>
+
+
+
+<section id="register-request">
+
+  
+
+   
+
+    <br><br>
+
+
+        <div class="register-request-wrapper">
+
+
+            @using (@Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+               
+            <h2>
+                ARTWORK PURCHASE OPPORTUNITY
+            </h2>
+
+
+                <div class="left-side" style="width:100%; min-height:560px; margin-bottom:20px;">
+
+                    @*<h3>Entry Information</h3>*@
+
+                    <h3>DETAILS</h3>
+
+                    <section class="Identity">
+                        <div class="identity-wrapper">
+
+
+
+                            <p>
+                                PAA has been contacted by a major national bank brand that is pervasive in other parts of the country.
+                                It will be opening its first Texas location in Plano at The Shops at Legacy in June. They wish to
+                                purchase the work of local artists to place in a permanent collection in the bank.
+                            </p>
+
+                            <p>
+                                The plan is to exhibit fairly large pieces that portray a diversity of styles and subject
+                                matter…either representational or non-representational.
+                            </p>
+
+                            <h3>SPECIFICS</h3>
+                            <p>
+
+
+                                <ul>
+                                    <li>•	A total of 7 pieces will be purchased for bank offices.</li>
+                                    <li>•	The artwork must be ready to hang on the wall. If a frame is required, the frame must be of professional quality. </li>
+                                    <li>
+                                        •	There is no specific size requirement, however the preference is for artwork that is large enough to work as a single piece on an office wall.
+                                        (The bank typically features work that ranges from approximately 48” w x 16” h to 36” x 36” to 30” x 30”)
+                                    </li>
+                                    <li>•	Art would need to be non-controversial and appropriate for a bank environment.</li>
+                                    <li>
+                                        •	Diversity is part of the bank’s corporate culture so they are interested in potentially featuring the work of minority
+                                        artists and/or subject matter that demonstrates diversity. This is not the only criteria, however.
+                                    </li>
+                                    <li>
+                                        •	Ideally they would like to limit the number of artists to no more than 3 local artists so the bank can promote
+                                        them and their work (via in-branch merchandising w/artist bios and contact information)
+                                    </li>
+                                    <li>
+                                        •	Open to various styles (photography, representational non-representational/abstract,etc.)
+                                        however they’d prefer to stay away from art that focuses on a single person or figurative works.
+                                    </li>
+                                    <li>
+                                        •	Open to various styles (photography, representational non-representational/abstract,etc.) however they’d prefer
+                                        to stay away from art that focuses on a single person or figurative works.
+                                    </li>
+                                    <li>
+                                        •	Bank representative(s) will make the final selection and negotiate purchase pricing. The general budget is
+                                        up to $800 per each piece of art
+                                    </li>
+                                    <li>
+                                        •	Selected artwork would need to be delivered to the branch in mid-May. (exact timing and details to be determined).
+                                        The branch will open to the public in early June.
+                                    </li>
+
+
+
+                                </ul>
+
+
+                            </p>
+                            <h3>PROCESS FOR SUBMISSION</h3>
+
+                            <p>
+                                Select images of up to 6 representative pieces of artwork you would like to offer for sale and have them ready to upload.
+                            </p>
+
+                            <p>
+                                Be sure to include all the information requested on the application including asking prices.
+                            </p>
+                            <p>
+                                Only current members of PAA are eligible to submit their work.
+                            </p>
+
+
+                            <p style="color:red!important;">Submit by Monday, April 29, 2019.</p>
+
+
+                            <p>
+                                Representative(s) from the bank will contact artists whose work they would like to consider.
+                                Prices will be negotiated between the artists and the bank.
+                                Other artists will be notified that the artwork of different artists has been selected.
+                            </p>
+
+
+                            <div class="form-info" style="float: left; text-align: center; ">
+
+                                <a href="~/Submissions/register" target="_top" id="register-button" class="common-buttons button-2">
+                                    <span style="color: white; white-space: nowrap"> Grab your images and start here >> </span>
+                                </a>
+
+                            </div>
+
+                            <div>
+                                <p>&nbsp;</p>
+                            </div>
+
+                        </div>
+                    </section>
+
+
+                </div>
+
+
+
+            }
+            <div class="clearfix">  <p>&nbsp;</p>  <p>&nbsp;</p></div>
+        </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<div class="fieldset">
+
+
+            <div class="form-info" style="font-size:0.9rem; white-space: nowrap !important; font-weight: bold; float: left;">
+
+
+                I wish to submit:  <br> <br>
+
+                @Html.RadioButtonFor(model => model.TotalCount, 1, new { id = "rbSingle", @Class = "radio-button" })
+                @Html.Label("1 Image")
+                @Html.RadioButtonFor(model => model.TotalCount, 2, new { id = "rbDual", @Class = "radio-button" })
+                @Html.Label("2 Images")
+
+                @Html.RadioButtonFor(model => model.TotalCount, 3, new { id = "rbTriple", @Class = "radio-button" })
+                @Html.Label("3 Images")
+
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+    @*<div class="fieldset">
+
+
+        <div class="form-info" style="font-size:0.9rem; white-space: nowrap !important; font-weight: bold; float: left;">
+
+
+            I wish to submit:  <br> <br>
+
+            @Html.RadioButtonFor(model => model.TotalCount, 1, new { id = "rbSingle", @Class = "radio-button" })
+            @Html.Label("1 Image")
+            @Html.RadioButtonFor(model => model.TotalCount, 2, new { id = "rbDual", @Class = "radio-button" })
+            @Html.Label("2 Images")
+
+            @Html.RadioButtonFor(model => model.TotalCount, 3, new { id = "rbTriple", @Class = "radio-button" })
+            @Html.Label("3 Images")
+
+
+        </div>
+
+    </div>*@
+

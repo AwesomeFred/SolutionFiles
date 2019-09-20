@@ -1,0 +1,51 @@
+﻿@{
+    Layout = null;
+}
+
+    <style>
+
+        .sync-window {
+            background-color:#ddd;
+            border: 1px solid #333;
+            border-radius:5px;
+            padding:6px;
+            text-align:center;
+            width:100%!important;
+        }
+
+            .sync-window span,
+            .sync-window select {
+            
+               font-size: 0.8rem!important;
+               height:26px;
+               padding:1px;
+
+            }
+
+         input {
+             background-color:red;
+             padding:6px;
+         }         
+
+    </style>
+
+    <div class="sync-window">
+
+       <h5>Constant Contact Sync</h5>
+       <br />
+  
+              <span>Choose List: </span>
+        <select>
+            <option selected value="0">All Lists</option>
+            <option value="1">Current</option>
+            <option value="2">Expiring Soon</option>
+            <option value="3">Expired Grace</option>
+            <option value="4">Expired Recently  </option>
+            <option value="4">Expired   </option>
+        </select>
+         &nbsp;
+        
+        <input   type="button" value="Update" />
+       
+
+    </div>

@@ -1,0 +1,438 @@
+﻿@using System.Text
+@model  Nop.Web.DallasArt.Models.PaaMember
+
+@{
+    ViewBag.Title = "Create New Member";
+
+
+    ViewBag.Id = "StaffCreateNewMember";
+    ViewBag.PageTitle = "Create New Member";
+   
+
+
+    string renewalDate = Model.Renewal.ToShortDateString();
+
+}
+<link href="/Themes/PAA/Components/DatePicker/css/jquery.datepick.css" rel="stylesheet">
+<script src="/Themes/PAA/Components/DatePicker/js/jquery.plugin.min.js"></script>
+<script src="/Themes/PAA/Components/DatePicker/js/jquery.datepick.js"></script>
+
+
+@*<style>
+     
+     
+    
+    /*
+    .header-section {
+        width: 33.3%;
+        float: left;
+    }
+
+
+.listing-header {
+        width: 1024px;
+        height: 80px;
+    }
+
+        .listing-header .header-section {
+            width: 33.3%;
+            float: left;
+        }
+
+
+        .listing-header .info-section h3 {
+            font-size: 1.6rem !important;
+            margin: 0 0 4px 0 !important;
+            color: red !important;
+        }
+
+        .listing-header .info-section h4 {
+            margin: 0 0 2px 0 !important;
+            font-size: 1rem !important;
+            font-weight: 700 !important;
+        }
+
+        .listing-header .info-section a {
+            color: blueviolet !important;
+            font-size: 1.3rem;
+        }
+
+            .listing-header .info-section a:hover {
+                text-decoration: underline;
+            }
+
+        .listing-header .sort-section {
+            margin-top: 52px;
+        }
+
+            .listing-header .sort-section select,
+            .listing-header .sort-section span {
+                font-size: 0.8rem !important;
+                height: 26px;
+                padding: 1px;
+            }*/
+
+
+
+    .create-table {
+        /*border:red solid 1px;*/
+       /* max-width: 1000px;*/
+    }
+
+    select {
+        border: 1px solid red !important;
+    }
+
+    table tr td p {
+        font-size: .8rem;
+    }
+
+
+
+    .save-changes {
+        color: white;
+        background-color: green;
+        padding: 10px;
+        width: 100px !important;
+    }
+
+    .optional-entries .form-required {
+        border-color: blue !important;
+    }
+
+
+
+    label {
+        display: inline-block !important;
+    }
+
+    .control-label {
+        display: none !important;
+    }
+
+
+
+    .form-control {
+        width: 350px;
+        border-radius: 3px;
+        display: block !important;
+    }
+
+        .form-control .form-info-short {
+            width: 50px !important;
+        }
+
+
+
+    .form-required {
+        border-color: red !important;
+    }
+
+
+
+
+    .input-error {
+        display: block !important;
+    }
+
+
+    .display {
+        display: inline-block;
+    }
+</style>*@
+
+
+
+<div class="listing-header">
+    <div class="header-section">
+        <div class="info-section">
+
+            <h3>Staff Dashboard </h3>
+            <h4>@ViewBag.PageTitle</h4>
+
+            @Html.ActionLink("Back to List", "Index")
+
+        </div>
+    </div>
+</div>
+
+    <hr />
+    <div>
+
+
+
+        @using (Html.BeginForm())
+        {
+
+            @Html.AntiForgeryToken()
+
+
+            @Html.HiddenFor(model => model.PaaMemberId)
+            @Html.HiddenFor(model => model.PartnerRequired)
+            @Html.HiddenFor(model => model.CountryId)
+            //    @Html.HiddenFor(model => model.CustomerRoles)
+
+
+
+            <h3></h3>
+
+            <article>
+
+                <section class="Identity">
+                    <div class="identity-wrapper">
+
+                        <h4>Add New Member</h4>
+
+                        <table class="create-table">
+
+                            <tr>
+                                <td>
+                                    <div class="form-group ">
+                                        <div class="form-info">
+                                            @Html.LabelFor(model => model.Email, new { @class = "control-label" }, ":")
+                                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger input-error" })
+                                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control form-required", placeholder = "Email" })
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    @*<label> Membership Type:  </label> <br />*@
+
+                                    <div class="form-group ">
+                                        <div class="form-info">
+                                            @*@Html.LabelFor(model => model.SelectedRole, new { @class = "control-label" }, ":")*@
+                                            @Html.ValidationMessageFor(model => model.SelectedRole, "", new { @class = "text-danger input-error" })
+                                            @Html.EnumDropDownListFor(model => model.SelectedRole, new { @class = "form-control", id = "SelectRole" })
+                                        </div>
+                                    </div>
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="form-group ">
+                                        <div class="form-info">
+                                            @*@Html.LabelFor(model => model.FirstName, new { @class = "control-label" }, ":")*@
+                                            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger input-error" })
+                                            @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control  form-required", placeholder = "First Name" })
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="form-group ">
+                                        <div class="form-info">
+                                            @*@Html.LabelFor(model => model.LastName, new { @class = "control-label" }, ":")*@
+                                            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger input-error" })
+                                            @Html.TextBoxFor(model => model.LastName, new { @class = "form-control  form-required", placeholder = "Last Name" })
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>
+                                    <div class="form-group ">
+                                        <div class="form-info">
+                                            @*@Html.LabelFor(model => model.StreetAddress, new { @class = "control-label" }, ":")*@
+                                            @Html.ValidationMessageFor(model => model.StreetAddress, "", new { @class = "text-danger input-error" })
+                                            @Html.TextBoxFor(model => model.StreetAddress, new { @class = "form-control  form-required", placeholder = "Address" })
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="form-group ">
+                                        <div class="form-info">
+                                            @*@Html.LabelFor(model => model.City, new { @class = "control-label" }, ":")*@
+                                            @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger input-error" })
+                                            @Html.TextBoxFor(model => model.City, new { @class = "form-control  form-required", placeholder = "City" })
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+
+                                    <div class="form-group ">
+                                        <div class="form-info">
+                                            @*@Html.LabelFor(model => model.SelectedRole, new { @class = "control-label" }, ":")*@
+                                            @Html.ValidationMessageFor(model => model.SelectState, "", new { @class = "text-danger input-error" })
+                                            @Html.EnumDropDownListFor(model => model.SelectState, new { @class = "form-control", id = "SelectRole" })
+                                        </div>
+                                    </div>
+
+
+                                </td>
+
+                                <td>
+                                    <div class="form-group ">
+                                        <div class="form-info">
+                                            @*@Html.LabelFor(model => model.ZipCode, new { @class = "control-label" }, ":")*@
+                                            @Html.ValidationMessageFor(model => model.ZipCode, "", new { @class = "text-danger input-error" })
+                                            @Html.TextBoxFor(model => model.ZipCode, new { @class = "form-control  form-required", placeholder = "Zip" })
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    <div class="form-group ">
+                                        <div class="form-info">
+                                            @*@Html.LabelFor(model => model.Phone, new { @class = "control-label" }, ":")*@
+                                            @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger input-error" })
+                                            @Html.TextBoxFor(model => model.Phone, new { @class = "form-control  form-required", placeholder = "Phone xxx-xxx-xxxx", type = "phone" })
+                                        </div>
+                                    </div>
+
+                                </td>
+                                <td>
+                                    <div class="form-group ">
+                                        <div class="form-info">
+                                            @*@Html.LabelFor(model => model.Renewal, new { @class = "control-label" }, ":")*@
+                                            @Html.ValidationMessageFor(model => model.Renewal, "", new { @class = "text-danger input-error" })
+                                            <input type="text" value="@renewalDate" class="form-control  form-required" placeholder="Renewal Date" readonly="readonly" id="popupDatepicker" name="Renewal" />
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="form-group ">
+                                        <div class="form-info">
+                                            @*@Html.LabelFor(model => model.Company, new { @class = "control-label" }, ":")*@
+                                            @Html.ValidationMessageFor(model => model.Company, "", new { @class = "text-danger input-error" })
+                                            @Html.TextBoxFor(model => model.Company, new { @class = "form-control  ", placeholder = "Enter Company" })
+                                        </div>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="form-group ">
+                                        <div class="form-info">
+                                            @*@Html.LabelFor(model => model.Url, new { @class = "control-label" }, ":")*@
+                                            @Html.ValidationMessageFor(model => model.Url, "", new { @class = "text-danger input-error" })
+                                            @Html.TextBoxFor(model => model.Url, new { @class = "form-control  ", placeholder = "Enter Member Website" })
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+
+
+                            @if (Model.PartnerRequired)
+                            {
+
+
+                                <tr class="optional-entries">
+                                    <td>
+                                        <p style="font-size:0.8rem!important"><strong>  Second Family Member Information - Required When Entering <br> Family Membership or Senior Family Membership </strong></p>
+                                    </td>
+                                    <td>
+                                        <div class="form-info">
+                                            @*@Html.LabelFor(model => model.PartnerFirstName, new { @class = "control-label" }, ":")*@
+                                            @Html.ValidationMessageFor(model => model.PartnerFirstName, "", new { @class = "text-danger input-error" })
+                                            @Html.TextBoxFor(model => model.PartnerFirstName, new { @class = "form-control form-required ", placeholder = "Partner First Name" })
+                                        </div>
+                                    </td>
+
+
+                                </tr>
+
+
+
+                                <tr class="optional-entries">
+                                    <td>
+                                        <div class="form-group ">
+                                            <div class="form-group ">
+                                                <div class="form-info">
+                                                    @*@Html.LabelFor(model => model.PartnerEmail, new { @class = "control-label" }, ":")*@
+                                                    @Html.ValidationMessageFor(model => model.PartnerEmail, "", new { @class = "text-danger input-error" })
+                                                    @Html.TextBoxFor(model => model.PartnerEmail, new { @class = "form-control form-required ", placeholder = "Partmer Email Address" })
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        <div class="form-group ">
+                                            <div class="form-info">
+                                                @*@Html.LabelFor(model => model.PartnerLastName, new { @class = "control-label" }, ":")*@
+                                                @Html.ValidationMessageFor(model => model.PartnerLastName, "", new { @class = "text-danger input-error" })
+                                                @Html.TextBoxFor(model => model.PartnerLastName, new { @class = "form-control  form-required ", placeholder = "Partner Last Name" })
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+
+
+
+                            <tr><td colspan="2" align="center">  <input width="100" class="save-changes" type="submit" value="Add Member" /> </td></tr>
+
+
+                        </table>
+
+
+                        <p id="instructions">&nbsp;  RED - Required | BLUE - Family Type Memberships | GRAY - Optional  </p>
+
+
+
+                    </div>
+
+                </section>
+            </article>
+
+        }
+
+
+
+    </div>
+
+    <script>
+
+
+
+            $(document).ready(function () {
+
+                $('#SelectRole').val(@ViewBag.MembershipSelector);
+
+                $('#StateProvinceId').val(@ViewBag.MemberStateId);
+
+
+
+
+
+
+
+
+           });
+
+          $(function () {
+                var settings = $.data($('form').get(0), 'validator').settings;
+                settings.ignore = ".hidden";
+            });
+
+
+            $(function () {
+                $('#popupDatepicker').datepick();
+                $('#inlineDatepicker').datepick({ onSelect: showDate });
+            });
+
+            function showDate(date) {
+                alert('The date chosen is ' + date);
+            }
+    </script>
+
+
+
+

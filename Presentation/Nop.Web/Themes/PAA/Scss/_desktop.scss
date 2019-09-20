@@ -1,0 +1,354 @@
+﻿
+/// <reference path="_variables.scss" />
+
+
+
+
+
+/*  BODY DESKTOP 
+--------------------------------------------------  */
+body { 
+    .sqmarker{
+        background-color:yellow; 
+
+    }
+  
+
+
+}
+
+/*  TOP NAV
+--------------------------------------------------  */
+
+
+
+
+
+/*  HEADER DESKTOP 
+--------------------------------------------------  */
+
+
+header {
+
+   
+
+       .paa-logo{
+        margin: 0 auto;
+       //  width:70%;
+   } 
+
+}         
+
+/*  NAV DESKTOP
+--------------------------------------------------  */
+nav { 
+    
+    
+  
+        /*#navWrapper {
+        font-size: .7em;
+
+        ul {
+           margin-left:0!important;
+            border-left: 1px solid rgba(0,0,0,0.3);
+
+            li {
+                width: auto !important;
+
+                a {
+                    font-size: 0.9rem!important;
+                     padding: .7rem 1rem;
+                }
+
+
+
+            }
+        }
+    }*/
+}
+// end  nav
+
+/*  MAIN  DESKTOP
+--------------------------------------------------  */
+
+
+main {  
+     
+    #mainWrapper { 
+         
+           h1{ 
+               padding-left:0; 
+               text-align:left!important; 
+           }
+
+      }
+}// end main
+
+
+/*    PAGE SETTINGS OVERIDES DESKTOP
+--------------------------------------------------  */
+
+
+
+
+/*#Bylaws main {
+
+ 
+    .row { max-width: 60% !important; }
+
+    p { width: 100%; margin: 1rem; }
+
+
+}*/
+
+
+/*#board-page,
+#bylaws-page {
+   
+     h3 {
+           text-align:left!important;
+        }
+}*/
+
+
+#register-page,
+#contact-page {
+
+    form {
+
+        .form-group {
+
+            .form-info {
+              
+                font-size: 0.9rem; 
+             //     width: 50%;
+             //     float:left;
+
+                .input-error {
+                }
+            }
+        }
+    
+        
+     }
+ }
+
+#join-page {
+
+    div#mainWrapper div.master-wrapper-page div.master-wrapper-content {
+        div.section-wrapper {
+            ul.join-list {
+
+                li {
+                    width: 15% !important;
+                    margin: 0 0 $gutterdbl 5px;
+                    //  border: 1px red solid;
+                
+                    &:nth-child(6) div {
+                        .price {
+                            font-size: 1rem !important;
+                            padding-top: 3px;
+                        }
+                     
+                   }
+
+                    div.figure-wrapper div.description {
+                        margin-top: 1rem;
+                        font-size: 1rem;
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/*#join-page{
+  
+.page-title h3{
+        text-align:center;
+        font-size:1.5rem;
+    }
+
+
+.category-description{ 
+     width:50%!important;
+     margin :auto;
+       
+   
+   }
+
+ 
+  h3.product-title{
+      font-size:1.8rem;
+
+  }
+  p.description{
+      font-size:1.3rem!important;
+  }
+   
+ 
+  .product-item .picture { 
+      width:18%!important;
+       max-width:200px!important; 
+  }  
+}*/  
+ 
+ 
+
+
+#donation-page,
+#adult-membership-page,
+#senior-membership-page,
+#family-membership-page,
+#senior-family-membership-page,
+#student-membership-page {
+
+    .gallery {
+        .picture {
+            width: 75%;
+
+            image {
+                width: 100%;
+            }
+        }
+    }
+    
+
+}
+//footer {background:green!important;}
+
+// end main
+
+
+
+
+/*    PAGE SETTINGS OVERIDES DESKTOP
+--------------------------------------------------  */
+
+#about-page {
+}
+
+#board-page {
+
+
+
+     main #mainWrapper {
+
+     
+        figure.photo {
+            width: 25% - $gutterdbl;
+            margin: .5rem $gutter;
+            float: left;
+        }
+
+        ul {
+            margin-top: -25px;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+      h3 {
+           text-align:left!important;
+        }
+
+    main #mainWrapper {
+        
+        h3 {
+            margin-top: -0.42em !important;
+           
+        }
+
+        hr{
+            margin-left:-$gutter;
+        }
+
+        figure.photo {
+            width: 25% - $gutterdbl;
+        }
+
+
+        ul {
+            line-height: 1.4rem;
+            list-style: none;
+        }
+    */
+}
+
+#bylaws-page {
+
+    main {
+
+ 
+    .row { max-width: 60% !important; }
+
+    p { width: 100%; margin: 1rem; }
+
+
+}
+
+
+
+      h3 {
+           text-align:left!important;
+        }
+
+    section {
+        max-width: 960px;
+
+        h3 {
+
+            margin-top: -0.4rem;
+        }
+    }
+}
+#contact-page{}
+#index-page{}
+
+#join-page {
+
+    .page-title h3 {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+
+    .category-description {
+        width: 50% !important;
+        margin: auto;
+    }
+
+
+    h3.product-title {
+        font-size: 1.8rem;
+    }
+
+    p.description {
+        font-size: 1.3rem !important;
+    }
+
+
+    .product-item .picture {
+        width: 18% !important;
+        max-width: 200px !important;
+    }
+}
+#partners-page{}
+
+
+

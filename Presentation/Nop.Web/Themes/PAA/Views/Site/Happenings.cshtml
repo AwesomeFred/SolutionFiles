@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "Happenings";
+    ViewBag.Id = "Happenings";
+    ViewBag.PageTitle = "Happenings";
+
+}
+
+
+<aside>
+        <div class="links-listing">
+            <div id="list-title"> Links </div>
+            <ul>
+
+                <li> <a href="#" onclick="showCalender(); return false;" > <h3>Monthly Calendar</h3></a></li>
+             
+                <li> <a href="#" onclick="showEvents(); return false;" > <h3>Highlight Events</h3></a></li>
+              
+                <li> <a href="#" onclick="openWindow('/newsletters')" target="_blank"> <h3>PAA Newsletters</h3>     </a> </li>
+                <li> <a href="#" onclick="openWindow('//vimeo.com/238778703')" target="_blank"> <h3>Vickery Park Mural</h3>  </a> </li>
+                <li> <a href="#" onclick="openWindow('//www.planomural.com/murals/')" target="_blank"> <h3>Downtown PAA Murals</h3> </a> </li>
+            </ul>
+        </div>
+    </aside>
+
+<script>
+    function openWindow(loc) {
+        window.open(loc, "newwindow", width = "960", height = "8000"  );
+        return false;
+    }
+</script>
+
+
+
+<article>
+    <div id="events" class="calendar-events">
+        <hr class="fadeToRight phoneOnly]">
+        @Html.Partial("_PaaCalendar")
+    </div>
+</article>
+
+
+
+<article>
+        <div id="calendar" class="upcoming-events">
+            <hr class="fadeToRight phoneOnly]">
+            @Html.Partial("_UpcomingEvents")
+        </div>
+</article>
+
+
+<script>
+    $(document).ready(function() {
+
+        if ($("#Happenings") != null) { showCalender(); }
+
+    });
+
+    function showEvents() {
+        $(".upcoming-events").show();           
+        $(".calendar-events").hide();        
+    }
+
+    function showCalender() {
+        $(".upcoming-events").hide();           
+        $(".calendar-events").show();        
+    }
+
+
+
+</script>
+
+

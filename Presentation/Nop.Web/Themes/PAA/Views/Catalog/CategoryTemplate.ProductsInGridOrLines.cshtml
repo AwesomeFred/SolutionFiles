@@ -1,0 +1,73 @@
+﻿@model CategoryModel
+@{
+    Layout = "~/Views/Shared/_ColumnsOne.cshtml";
+
+    ViewBag.HeadLine = "JOIN US";
+
+    //title
+    Html.AddTitleParts(!String.IsNullOrEmpty(Model.MetaTitle) ? Model.MetaTitle : Model.Name);
+    //meta
+    Html.AddMetaDescriptionParts(Model.MetaDescription);
+    Html.AddMetaKeywordParts(Model.MetaKeywords);
+    //page class
+    Html.AppendPageCssClassParts("html-category-page");
+
+    var canonicalUrlsEnabled = EngineContext.Current.Resolve<SeoSettings>().CanonicalUrlsEnabled;
+    if (canonicalUrlsEnabled)
+    {
+        var categoryUrl = Url.RouteUrl("Category", new { SeName = Model.SeName }, this.Request.Url.Scheme);
+        Html.AddCanonicalUrlParts(categoryUrl);
+    }
+
+    var breadcrumbDelimiter = EngineContext.Current.Resolve<CommonSettings>().BreadcrumbDelimiter;
+}
+@using Nop.Core.Domain.Common;
+@using Nop.Core.Domain.Seo;
+@using Nop.Core.Infrastructure;
+@using Nop.Web.Models.Catalog;
+
+@*<h1> Join or Donate  </h1>
+<br>*@
+
+<section class="page category-page from-panel "  >
+  
+    
+    <div class="page-title panel-heading">
+        <h3>@Model.Name</h3>
+        
+
+        <!--description-->
+        @if (!String.IsNullOrWhiteSpace(Model.Description))
+        {
+            <div class="category-description">
+                @Html.Raw(Model.Description)
+            </div>
+        }
+
+    </div>
+    
+    <div class="page-body panel-body">
+
+
+        <!--product grid and list-->
+        @if (Model.Products.Count > 0)
+        {
+            <div class="product-grid clearfix">
+
+                @foreach (var product in Model.Products)
+                {
+                    <div class="thumbnail">
+                        @Html.Partial("_ProductBox", product)
+
+                    </div>
+
+                }
+            </div>
+        }
+
+
+    </div>
+</section>
+
+
+

@@ -1,0 +1,95 @@
+﻿@{
+    Layout = "~/Views/Shared/_ColumnsOne.cshtml";
+
+    ViewBag.Title = "Home";
+    ViewBag.Id = "HomePage";
+    ViewBag.PageTitle = "Home";
+    ViewBag.HeadLine = "WELCOME";
+
+
+ 
+}
+
+
+@using Nop.Web.DallasArt.ViewModels
+
+ @*  @model   IEnumerable<FadingSlide>*@
+
+
+
+<div class="home-wrapper clearfix ">
+
+    <div class="leftside">
+        @*<h3> </h3>*@
+
+        <p>
+            @*<a style="font-size:1.3rem; color:blue; text-decoration:underline" target="_blank" href="//www.callforentry.org/festivals_unique_info.php?ID=5449">Enter the 125 Show 2018<br />Deadline May 31, 2018</a>*@
+
+            @*<a href="/RegisterMember/Instructions"><span style="color:#103ffb"> Click to enter<br /> "Eastern Impressions" Chinese Art Exhibit</span></a><br /><br />*@
+
+            @*<a href="/Submissions/Instructions">
+            <span style="color:#0fabe3">
+                CALL FOR ENTRIES <br>
+                ANNUAL MEMBERS' EXHIBIT
+
+            </span>
+        </a>*@
+            @*<a style="font-size:1.3rem; color:blue; text-decoration:none" target="_blank" href="https://conta.cc/2IR0g26">
+            125 SHOW 2019 NOW ON VIEW AT THE EISEMANN CENTER. <br> CLICK FOR DETAILS.
+        </a>
+        <br> <br>*@
+            @*<a style="font-size:1.3rem; color:red; text-decoration:none" target="_blank" href="~/Themes/PAA/Content/pdf/2019BrochureV3.pdf">
+                      SEE THE WINNERS' WORK FROM 2019 125 EXHIBIT!
+                  </a
+                    <a style="font-size:1.3rem; color:blue; text-decoration:none"  href="/submissions/instructions">
+                         SHOWCASE YOUR ARTWORK.
+           ENTER THE 2019 GLOBAL REFLECTIONS
+        EXHIBIT AT THE INTERNATIONAL FESTIVAL.
+
+                    </a>         >*@
+
+            <br><br>
+
+            "The Plano Art Association is dedicated to encouraging the visual arts development
+            of the membership, and inspiring awareness of the visual arts by sharing the joy,
+            passion and beauty within and beyond our Plano community."
+
+        </p>
+
+    </div>
+    
+    
+    <!-- DallasArt/ViewModels/FadindSlides.cs     -->
+
+    <div class="rightside">
+
+            @Html.Action( "FadingShow" , "FadingSlideShow");
+
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    $(document)
+        .ready(function () {
+
+            //  fader options
+            var opts = {
+                auto: {  //auto-advancing slides? accepts boolean (true/false) or object
+                    speed: 6000,// speed to advance slides at. accepts number of milliseconds
+                    pauseOnHover: true // pause advancing on mouseover? accepts boolean
+                },
+                fullScreen: false, // show fullscreen toggle? accepts boolean
+
+                swipe: true // support swiping on touch devices? accepts boolean, requires hammer.js
+            };
+            // start fader
+             makeBSS('.num1', opts);
+
+        });
+</script>
+
+
+
+
+

@@ -1,0 +1,38 @@
+﻿@using DallasArt.ConstantContact
+@using Nop.Web.Themes.PAA.Infrastructure
+@model Nop.Web.Themes.PAA.ViewModels.ConstantContactViewModel
+
+@{
+    ViewBag.Title = "ConstantContact";
+    ViewBag.Id = "ConstantContact";
+    ViewBag.PageTitle = "Staff Constant Contact";
+}
+
+<h1>Hi! - From Constant Contact Interface!</h1>
+
+
+
+<table>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Renewal Date</th>
+        <th>Type</th>
+
+    </tr>
+    <tr><th colspan="6"><h3>PAA Members Active</h3></th></tr>
+
+    @Html.Partial("_ConstantContactList", @Model.ActiveMembers)
+
+    <tr><th colspan="6"><h3>PAA Members Active Expiring Soon</h3></th></tr>
+
+    @Html.Partial("_ConstantContactList", @Model.ExpiringMembers)
+
+    <tr><th colspan="6"><h3>PAA Members Expired Less Than 45 Days</h3></th></tr>
+    @Html.Partial("_ConstantContactList", @Model.ExpiredMembers)
+
+    <tr><th colspan="6"><h3>PAA Members Expired More Than 45 Days Final List</h3></th></tr>
+    @Html.Partial("_ConstantContactList", @Model.InactiveMembers)
+
+</table>

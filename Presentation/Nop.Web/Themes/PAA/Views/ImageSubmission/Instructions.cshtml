@@ -1,0 +1,353 @@
+﻿
+@using Nop.Web.Themes.PAA.ViewModels
+@model  RegistrationViewModel
+
+@{
+    Layout = "~/Views/Shared/_ColumnsOne.cshtml";
+    //title
+    Html.AddTitleParts(T("PageTitle.Register").Text);
+    //page class
+    Html.AppendPageCssClassParts("html-entry-instruction-page");
+
+
+}
+
+
+<style>
+
+    .phoneHidden ul {
+        margin-left: 0 !important;
+    } 
+
+    .phoneHidden ul li {
+
+        padding: 0;
+        margin: 0;
+        margin-right: 1.3rem;
+    }
+   
+
+
+    p, li {
+        margin-bottom: 1rem;
+        font-size: 1.2rem !important;
+        color: #333 !important;
+    }
+
+
+    li {
+        margin-left: 3rem;
+        margin-bottom: .5rem;
+    }
+
+
+    .left-side {
+        border: 1px solid #c1c1c1;
+        border-radius: 8px;
+        float: left;
+      /*  height: 500px; */
+        margin: 1rem 1rem 0 0;
+        width: 85%;
+        padding: 2% 4%;
+    }
+
+
+        .left-side h3 {
+            margin-left: -.02rem !important;
+        }
+
+        .left-side p {
+            font-size: 1rem;
+        }
+
+        .left-side a {
+            color: #9400d3 !important;
+        }
+
+        .left-side #register-button a {
+            color: white !important;
+            text-align: center;
+        }
+
+         form {
+             display: block;
+             background-color: #ddd;
+             padding: 2%;
+             overflow: auto;
+
+         }
+
+         p{ padding-left: 20px;}
+
+            p.pickup {
+                color: red !important;
+                font-weight: bolder!important;
+            } 
+
+
+   #key-dates{
+       width:500px;
+       font-size:1.5rem!important;
+       margin : 0;
+       padding:2px;
+       
+   }
+
+   #key-dates tr {
+       margin: 0; 
+       padding:0;
+
+   }
+
+   #key-dates tr th{
+       text-align:right;
+       font-weight:800;
+       margin-right:10px;
+   }
+   
+   #key-dates tr th,
+   #key-dates tr td {
+       margin: 0; 
+       padding:2px;
+      
+      
+       
+  }
+
+ #register-request  p .red{
+     color :red;
+     font-weight:800;
+   }
+
+    ul li,
+    tr,td {
+        font-size:1rem!important;
+    }
+
+
+
+
+</style>
+
+
+
+<section id="register-request">
+
+    <br><br>
+
+        <div class="register-request-wrapper">
+
+
+            @using (@Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <h2>
+                    YOU ARE INVITED TO SHOWCASE YOUR WORK IN
+                    THE GLOBAL REFLECTIONS EXHIBIT
+                    AT THE 2019 INTERNATIONAL FESTIVAL
+                </h2>
+                <br>
+                <p>
+                    This exhibit features the work of Plano Art Association members,
+                    in addition to other artists from the North Texas area. The fifty-plus works
+                    are a global reflection of the vision of this group of very talented artists.
+                    <br>
+                    PAA artists are pleased to showcase their art
+                    in the exciting celebration of the international confluence of Plano.
+                </p>
+                <p>
+                    On display at Gallery@Courtyard, at the Courtyard Theater, 1509 H Ave, Plano, TX 75074 <br>
+                    Hours of the exhibit at are Monday through Friday, 9 a.m. - 4:00 p.m.
+                </p>
+
+                <h2>EVENT DETAILS</h2>
+
+                <div class="left-side" style="width:100%; min-height:560px; margin-bottom:20px;">
+
+                    @*<h3>Entry Information</h3>*@
+
+
+                    <section class="Identity">
+                        <div class="identity-wrapper">
+
+                            <h3>WHAT</h3>
+
+                            <p>
+                                This is an art exhibit featuring 2D artworks that reflect the universal language of art.
+                                It is part of the 2019 Plano International Festival. More than 20,000 people are forecast to attend the Festival.
+                            </p>
+
+
+                            <h3>WHEN</h3>
+
+
+                            <table id="key-dates"  >
+                                @*<tr><th>“Call” for Entries:</th><td>Week of August 19</td></tr>*@
+                                <tr><th>Entry Deadline:</th><td>Wednesday, September 11, 11:59,</td></tr>
+                                <tr><th>Artist Drop-off:</th><td>Tuesday, September 17, Noon – 4:00 p.m.</td></tr>
+                                <tr><th>Show Opens:</th><td>Friday, September 20</td></tr>
+                                <tr><th>Reception:</th><td>Tuesday, October 1, 7:00 – 8:45 p.m. </td></tr>
+                                <tr><th>Show Closes:</th><td>Monday, October 28 at Noon</td></tr>
+                                <tr><th>Art Pick Up:</th><td>Monday, October 28, Noon - 4:00 p.m.</td></tr>
+                            </table>
+                            @*<p class="pickup"> NOTE: Artwork cannot be removed from the exhibit earlier
+                            than this time and date!
+        </p>*@
+
+
+                            <h3>PARTICIPATION</h3>
+
+                            <ul>
+                                <li>•	Open to members of Plano Art Association and Plano-area artists</li>
+                                <li>•	Artists may submit up to three pieces. </li>
+                                <li>•	Acceptance will be based on number of total submissions and space available for exhibiting, on a first come first serve basis. </li>
+                                <li>•	Artists will be notified of the pieces that are accepted to be exhibited.</li>
+                                <li>•   No nude subject matter will be accepted.</li>
+                                <li>•   All pieces must be ready to hang with wire; no eye hooks or saw tooth hangers allowed.</li>
+                                <li>•	Exhibit space is limited to approximately 60 pieces.</li>
+                            </ul>
+
+
+
+
+
+                            <h3>AWARDS</h3>
+
+                            <p>
+                                A Peoples’ Choice Awards: <br>
+                                1st  $150,  2nd $100, and 3rd  $50 will be presented. <br><br>
+                                Each winner will also receive tickets to a dance performance.<br>
+                                All attendees will have the opportunity to vote on their favorite artwork.
+                            </p>
+
+                            <h3>ENTRY FEES</h3>
+
+                            <p>
+
+                            Artists may enter up to three pieces for a total fee of $10 for PAA members and $20 for non-members. 
+                            This is one of many benefits of being a member of PAA as you enter future PAA exhibits.
+                            <a href="//planoartassociation.org/Join" target="_blank">
+                                Click here to join PAA.
+                            </a>          
+
+                            </p>
+
+
+
+
+
+
+                            <h3>SALES</h3>
+                            <p>Exhibiting artists may sell their work during the show. A 30% commission will be retained by Plano Art Association.</p>
+
+
+                            @*<h3>ENTRY PROCESS</h3>
+        <p>
+
+            <ul>
+                <li>
+                    1. Click below to register and upload up to three images of your work. You will be able to fill out necessary
+                    entry information and pay entry fees on-line.
+                </li>
+                <li>
+                    2. Have your credit card information handy for paying the entry fee.
+                </li>
+                <li>
+                    3. Artists will be notified about which of their works can be included in the exhibit
+                    along with a reminder of hanging regulations, key times for drop-off, reception, pick-up, etc.
+                </li>
+            </ul>
+        </p>*@
+
+
+                            <div class="form-info" style="float: left; text-align: center; ">
+
+                                <a href="~/Submissions/register" target="_top" id="register-button" class="common-buttons button-2">
+                                    <span style="color: white; white-space: nowrap"> Grab your images and your credit card and start here >> </span>
+                                </a>
+
+                            </div>
+
+                            <div>
+                                <p>&nbsp;</p>
+                            </div>
+
+                        </div>
+                    </section>
+
+
+                </div>
+
+
+
+            }
+            <div class="clearfix">  <p>&nbsp;</p>  <p>&nbsp;</p></div>
+        </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<div class="fieldset">
+
+
+            <div class="form-info" style="font-size:0.9rem; white-space: nowrap !important; font-weight: bold; float: left;">
+
+
+                I wish to submit:  <br> <br>
+
+                @Html.RadioButtonFor(model => model.TotalCount, 1, new { id = "rbSingle", @Class = "radio-button" })
+                @Html.Label("1 Image")
+                @Html.RadioButtonFor(model => model.TotalCount, 2, new { id = "rbDual", @Class = "radio-button" })
+                @Html.Label("2 Images")
+
+                @Html.RadioButtonFor(model => model.TotalCount, 3, new { id = "rbTriple", @Class = "radio-button" })
+                @Html.Label("3 Images")
+
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+    @*<div class="fieldset">
+
+
+        <div class="form-info" style="font-size:0.9rem; white-space: nowrap !important; font-weight: bold; float: left;">
+
+
+            I wish to submit:  <br> <br>
+
+            @Html.RadioButtonFor(model => model.TotalCount, 1, new { id = "rbSingle", @Class = "radio-button" })
+            @Html.Label("1 Image")
+            @Html.RadioButtonFor(model => model.TotalCount, 2, new { id = "rbDual", @Class = "radio-button" })
+            @Html.Label("2 Images")
+
+            @Html.RadioButtonFor(model => model.TotalCount, 3, new { id = "rbTriple", @Class = "radio-button" })
+            @Html.Label("3 Images")
+
+
+        </div>
+
+    </div>*@
+

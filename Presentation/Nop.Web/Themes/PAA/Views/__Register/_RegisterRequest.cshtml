@@ -1,0 +1,126 @@
+﻿@model  Nop.Web.Themes.PAA.ViewModels.RegistrationViewModel
+
+
+
+<div class="left-side" style=" min-height:800px; margin-bottom:20px; ">
+    <!--    <div class="left-side"> -->
+
+    <h3>Entry Instructions</h3><br>
+
+    @if (Model.CurrentState == "Begin")
+    {
+
+    @Html.Partial("_SelfIdentification", Model.SelfIdentificationViewModel)
+
+    <div class="clearfix"></div>
+
+    <div class="phoneOnly" style="margin-top:-3rem!important;"></div>
+
+    <div class="form-info">
+        @*<button type="submit" id="register-button" name="register-button" class="common-buttons button-2">
+            Next
+        </button>*@
+    </div>
+
+
+
+    }
+
+    @*//  @if (Model.CurrentState != "Begin")*@
+    else
+    {
+    <div class=" identity-wrapper " style=" white-space: normal; margin-top: -.8rem; ">
+
+        <div class=" " style="font-size: 0.85rem; line-height: 1.35rem;  ">
+
+            <ul>
+
+                <li class="phoneHidden">Use the panel on the right to submit 1 or 2 entries.</li>
+                <li class="phoneOnly">Use the panel below to submit 1 or 2 entries.</li>
+
+
+                <li>Images are limited to files with the 'jpeg' or 'jpg' extensions</li>
+                <li>You may either drag an image into the top <strong>'Drop image here'</strong> box or use the blue <strong>'Click to select image'</strong> Button</li>
+                <li>
+                    The limit on file size is 5 MB.
+                    @*<li><strong>Please be read to pay the small entry fee as soon as you submit your images. </strong>  </li>*@
+                <li>Fill out the form below the drop image box, then click orange "Submit New Image' button"</li>
+
+            </ul>
+            <hr />
+            <ul>
+
+                <li>
+                    After summiting entry, a green bar should appear saying
+                    <span style="color: White; background: green; padding:4px">&nbsp; Entry Successful &nbsp; </span>
+                </li>
+                <li>
+                    <strong> This means your entry has been received. </strong>
+                </li>
+
+                <li>
+                    If you wish you, you may add one additional entry, or stop now.
+                </li>
+            </ul>
+
+            <hr />
+                
+            <ul>
+                <li>If you encounter a   <span style="color: White; background: red; padding:4px">&nbsp; RED BOX Message &nbsp; </span> </li>
+                <li> The red message will remain until a successful submission is achieved!</li>
+                <li> See Help Tips Below to proceed.  </li>
+            </ul>
+            <hr />
+            <ul style="font-size: 0.8rem">
+
+                <li><strong>Helpful Tips on Red Box Errors: </strong></li>
+
+                <li>
+                    See a red box saying 'No files to upload' ? Place an image in the area 'Drop image here'.
+                </li>
+
+
+                <li>
+                    See a red box saying 'This image previously submitted!' ?  Retry with a different image.<br>
+                </li>
+
+                <li>See a red box saying 'This 'ArtWork Title' previously submitted' ?,  </li>
+                <li>Retry with a different 'ArtWork Title'. </li>
+
+                <li>See a red box talking about need for 'jeg or jpeg' extension' ?,  </li>
+                <li>The image is invalid for upload, try a different image with 'jeg or jpeg' extension.</li>
+
+                <li><hr /></li>
+
+                <li>If you see a box bar with any other message, or you have other questions - </li>
+                <li>please contact us: </li>
+                <li>Heather -</li>
+                <li>heather75024@gmail.com or call 972-697-6894</li>
+                <li>Nicole -</li>
+                <li>Nicole.huang.chang@gmail.com or call 214-518-1816</li>
+
+                @* please click to <strong><a href="/contact"> <span style="color :#33B6CC"> Contact Us </span></a></strong>
+                  or call <span style="color :#33B6CC!important"><strong> 214-403-9171</strong></span> , to report the message.*@
+
+            </ul>
+
+            <div class="clearFix"> </div>
+        </div>
+    </div>
+
+    }
+
+</div>
+
+
+<div class="right-side" style="min-height:675px!important; margin-top:-3rem;">
+
+    <div class="phoneOnly" style="margin-top:-3rem!important;">
+        &nbsp;
+    </div>
+
+    <h3>Submit Entry Area</h3>
+
+    @Html.Partial("_formdesign", Model.ImageUploadViewModel)
+
+</div>

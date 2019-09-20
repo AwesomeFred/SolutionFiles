@@ -1,0 +1,345 @@
+﻿
+<script type="text/template" id="qq-template">
+    <div class="qq-uploader-selector qq-uploader" qq-drop-area-text="Drop image here">
+        <div class="qq-total-progress-bar-container-selector qq-total-progress-bar-container">
+            <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" class="qq-total-progress-bar-selector qq-progress-bar qq-total-progress-bar"></div>
+        </div>
+        <div class="qq-upload-drop-area-selector qq-upload-drop-area" qq-hide-dropzone>
+            <span class="qq-upload-drop-area-text-selector"></span>
+        </div>
+        <div class="qq-upload-button-selector qq-upload-button">
+            <div>Click to select image. </div>
+        </div>
+        <span class="qq-drop-processing-selector qq-drop-processing">
+            <span>Processing dropped files...</span>
+            <span class="qq-drop-processing-spinner-selector qq-drop-processing-spinner"></span>
+        </span>
+        <ul class="qq-upload-list-selector qq-upload-list" aria-live="polite" aria-relevant="additions removals">
+            <li>
+                <div class="qq-progress-bar-container-selector">
+                    <div role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" class="qq-progress-bar-selector qq-progress-bar"></div>
+                </div>
+                <span class="qq-upload-spinner-selector qq-upload-spinner"></span>
+                <img class="qq-thumbnail-selector" qq-max-size="100" qq-server-scale>
+                <span class="qq-upload-file-selector qq-upload-file"></span>
+                <span class="qq-edit-filename-icon-selector qq-edit-filename-icon" aria-label="Edit filename"></span>
+                <input class="qq-edit-filename-selector qq-edit-filename" tabindex="0" type="text">
+                <span class="qq-upload-size-selector qq-upload-size"></span>
+                <button type="button" class="qq-btn qq-upload-cancel-selector qq-upload-cancel">Cancel</button>
+                <button type="button" class="qq-btn qq-upload-retry-selector qq-upload-retry">Retry</button>
+                <button type="button" class="qq-btn qq-upload-delete-selector qq-upload-delete">Delete</button>
+                <span role="status" class="qq-upload-status-text-selector qq-upload-status-text"></span>
+            </li>
+        </ul>
+
+        <dialog class="qq-alert-dialog-selector">
+            <div class="qq-dialog-message-selector"></div>
+            <div class="qq-dialog-buttons">
+                <button type="button" class="qq-cancel-button-selector">Close</button>
+            </div>
+        </dialog>
+
+        <dialog class="qq-confirm-dialog-selector">
+            <div class="qq-dialog-message-selector"></div>
+            <div class="qq-dialog-buttons">
+                <button type="button" class="qq-cancel-button-selector">No</button>
+                <button type="button" class="qq-ok-button-selector">Yes</button>
+            </div>
+        </dialog>
+
+        <dialog class="qq-prompt-dialog-selector">
+            <div class="qq-dialog-message-selector"></div>
+            <input type="text">
+            <div class="qq-dialog-buttons">
+                <button type="button" class="qq-cancel-button-selector">Cancel</button>
+                <button type="button" class="qq-ok-button-selector">Ok</button>
+            </div>
+        </dialog>
+    </div>
+</script>
+ 
+
+@using System.Web.Mvc.Html
+
+@model   Nop.Web.Themes.PAA.ViewModels.ImageUploadViewModel
+
+
+
+
+
+
+@{
+
+
+    var mambership = Model.Member;
+
+
+    var count = Model.RemainingImages;
+
+    var x = count;
+}
+
+
+<style>
+
+    #submit-button-for-upload {
+      
+        background-color: #FAB44B;
+        color: black;
+        width: 100%;
+        height:100px!important;
+    }
+
+
+</style>
+
+@if (@Model.ModelState == "Initial")
+{
+    <p>Ready !</p>
+
+    return;
+
+}
+
+
+
+@if (@Model.ModelState == "Uploaded")
+{
+    <p>fred2</p>
+
+    return;
+}
+
+
+<div id="my-uploader"></div>
+
+<style>.form-info{max-height:22px;}</style>
+
+<div class="image-upload-form-wrapper">
+    
+    
+    
+    
+    
+    <form id="PayPalPayment" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+    <input type="hidden" name="cmd" value="_s-xclick">
+    <input type="hidden" name="hosted_button_id" value="SZGE74J9YYJ2J">
+
+    @*<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">*@
+    </form>
+
+
+  @if (Model.Member)
+    {
+
+       <!-- <form id="PayPalPayment" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <input type="hidden" name="cmd" value="_s-xclick">
+            <input type="hidden" name="hosted_button_id" value="LGM8ZBJKAEWEU">
+
+            @*<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">*@
+
+        </form> -->
+
+    }
+    else
+    {
+        <!-- form id="PayPalPayment" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <input type="hidden" name="cmd" value="_s-xclick">
+            <input type="hidden" name="hosted_button_id" value="UX47Y58UUWVXQ">
+
+            @*<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">*@
+
+        </form -->
+    } 
+
+ 
+
+    @using (Html.BeginForm("UploadFile", "Upload", FormMethod.Post, new { id = "qq-form" }))
+    {
+
+        @Html.HiddenFor(model => model.EmailAddress)
+        @Html.HiddenFor(model => model.CustomerName)
+        @Html.HiddenFor(model => model.Telephone)
+        @Html.HiddenFor(model => model.RemainingImages)
+
+
+
+
+
+        <div class="form-group ">
+            <div class="form-info">
+                @Html.ValidationMessageFor(model => model.ArtistName, "", new { @class = "text-danger input-error" })
+                @Html.TextBoxFor(model => model.ArtistName, new { @class = "form-control", required = "required", placeholder = "Artist Name" })
+
+            </div>
+
+            @*<div class="form-info">
+                   @Html.ValidationMessageFor(model => model.CountryofOrigin, "", new { @class = "text-danger input-error" })
+                    @Html.TextBoxFor(model => model.Member, new { @class = "form-control", required = "required", placeholder = "Country of Origin" })
+
+                </div>*@
+
+        </div>
+
+        <div class="form-group ">
+            <div class="form-info">
+                @Html.ValidationMessageFor(model => model.ArtTitle, "", new { @class = "text-danger input-error" })
+                @Html.TextBoxFor(model => model.ArtTitle, new { @class = "form-control", required = "required", placeholder = "ArtWork Title" })
+
+            </div>
+
+            <div class="form-info">
+                @Html.ValidationMessageFor(model => model.Dimensions, "", new { @class = "text-danger input-error" })
+                @Html.TextBoxFor(model => model.Dimensions, new { @class = "form-control", required = "required", placeholder = "Dimensions (36\" Width Max )" })
+
+            </div>
+
+        </div>
+
+        <div class="form-group ">
+            <div class="form-info">
+                @Html.ValidationMessageFor(model => model.Medium, "", new { @class = "text-danger input-error" })
+                @Html.TextBoxFor(model => model.Medium, new { @class = "form-control", required = "required", placeholder = "Medium" })
+
+            </div>
+
+            <div class="form-info">
+                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger input-error" })
+                @Html.TextBoxFor(model => model.Price, new { @class = "form-control", placeholder = "Price (Leave blank if not for sale)" })
+
+            </div>
+
+        </div>
+
+
+        <div id="fineupload-messages">
+
+            <div title="Notification" id="fineupload-notifications-success" style="display:block"></div>
+            <div title="Error" id="fineupload-notifications-error" style="display:block"></div>
+            <div title="Warning" id="fineupload-notifications-warning" style="display:block"></div>
+
+        </div>
+
+        <div class="button">
+            <input style="height: 300px" id="submit-button-for-upload" name="start" class="common-buttons button-2" type="submit" value="Submit First Image">
+        </div>
+
+    } <!-- end form 1 -->
+
+    <div style="text-align:center">
+        <p> Submit 1 to 3 Images Above,<br> Then Pay Below</p>
+        <br>
+
+        <div style="font-size:0.85rem; color:white; cursor:pointer; background-color:#4b4a4a; padding:4%; border-radius:4%" onclick="submitPayment()" ;>
+            Click to Pay <br> Annual Members’ Exhibit 2019 Entry Fee   <br> <br>
+
+            <img src="~/Themes/PAA/Content/siteimages/paypal-paynow.png" border="0" /> <br><br>
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+   
+
+    function submitPayment() {
+
+
+        var form =    document.getElementById('PayPalPayment');
+
+           form.submit();
+
+       // $("#PayPalPayment").submit();
+
+        return false;
+    }
+
+</script>
+
+
+<script>
+
+
+    var uploader = new qq.FineUploader({
+        element: document.getElementById('my-uploader'),
+        validation: {
+            allowedExtensions: ['jpeg', 'jpg'],
+            itemLimit: 1,
+            sizeLimit: 5120000 // 5000 * 1024    //51200 // 50 kB = 50 * 1024 bytes
+        },
+
+        callbacks: {
+
+            onUpload: function() {
+                ClearStatusMessages();
+            },
+
+            onError: function (id, name, errorReason, xhr) {
+                document.getElementById("fineupload-notifications-error").innerText = errorReason;
+            
+            },
+
+
+            onComplete: function (id, name, response, xhr) {
+                //  alert('onComplete');
+
+                if (response.success) {
+                    document.getElementById("fineupload-notifications-success").innerText = "Entry Successful Submitted";
+                }
+
+                var info = (response.extraInformation == null) ? "Submit Entry" : response.extraInformation;
+                $("#submit-button-for-upload").val(info);
+                  
+
+
+            },
+
+
+            onAllComplete: function () {
+
+                /////  alert('onAllComplete');
+
+                
+          
+            
+                // clear picture
+                uploader.reset();
+
+                // clear text
+                $('form').find("input[type=text], textarea").val("").removeAttr("required");
+
+
+                
+                 
+     
+
+            }
+        }
+    });
+
+
+    function ClearStatusMessages() {
+
+      
+        document.getElementById("fineupload-notifications-success").innerText = "";
+        document.getElementById("fineupload-notifications-error").innerText = "";
+        document.getElementById("fineupload-notifications-warning").innerText = "";
+
+        x = 1;
+
+    }
+
+    function DoneWithUpload() {
+        alert($('#qq-form').attr());
+
+
+    }
+
+    
+
+
+</script>

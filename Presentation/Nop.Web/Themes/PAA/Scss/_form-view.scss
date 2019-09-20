@@ -1,0 +1,79 @@
+﻿/// <reference path="_mixins.scss" />
+/// <reference path="_variables.scss" />
+/// <reference path="_form-reset.scss" />
+
+/*** Begin - Form View ***/
+
+@import "variables";
+@import "form-reset";
+
+$tabletMin: 768px;
+
+form {
+   
+    padding: $gutter 0;
+    margin: 0 $gutter;
+    position: relative;
+    border: solid 1px lighten($fontColor, 50%);
+    border-radius: $gutter * 0.5;
+    padding: $gutter $gutterdbl;
+
+    textarea {
+        padding: $gutter !important;
+        overflow: hidden;
+    }
+
+    input {
+        border: 1px solid $fontColor;
+        width: 100px;
+    }
+
+    input[type="submit"] button,
+    button-1,
+    button-2 {
+        cursor: pointer;
+    }
+
+    figure {
+        img {
+            width: 100%;
+        }
+    }
+
+    .required {
+        margin-left: 1rem;
+        font-size: 1.3rem;
+        color: white;
+    }
+
+    .form-group {
+
+        .form-info {
+            font-size: 0.9rem;
+            width: 100% !important;
+
+            &:first-child {
+                margin-bottom: 1rem;
+            }
+
+            .control-label {
+                display: none;
+            }
+
+            .input-error {
+                background-color: transparent;
+                font-size: 0.8rem;
+                color: red;
+            }
+        }
+    }
+}
+
+    //  non-phone adjustments
+@media (min-width: $tabletMin) {
+}
+
+
+/*** End - Form View ***/
+
+

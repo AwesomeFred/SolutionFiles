@@ -1,0 +1,188 @@
+﻿@model  Nop.Web.Themes.PAA.ViewModels.RegistrationViewModel
+
+
+
+<div class="left-side" style=" min-height:1000px; margin-bottom:20px; ">
+    <!--    <div class="left-side"> -->
+
+    
+    <style>
+
+        ul li{ 
+            
+           
+            margin-bottom: 5px;
+            border-bottom:1px 
+
+        }
+
+            ul.helpful-hints {
+
+                border: 1px #333 solid;
+                border-radius: 3%;
+                padding: 3%;
+            }
+
+        ul.helpful-hints li {
+            border-bottom:1px solid  darkgray;
+            margin-bottom: 3px;
+        }
+
+    </style>
+    
+    <h3>Entry Instructions</h3><br>
+
+    @if (Model.CurrentState == "Begin")
+    {
+
+        @Html.Partial("_SelfIdentification", Model.SelfIdentificationViewModel)
+
+        <div class="clearfix"></div>
+
+        <div class="phoneOnly" style="margin-top:-3rem!important;"></div>
+       
+        <div class="form-info">
+            <button type="submit" id="register-button" name="register-button" class="common-buttons button-2">
+                Next
+            </button>  
+
+            @*<button type="submit" id="register-button" name="register-button" class="common-buttons button-2">
+            Next
+        </button> *@
+        </div>
+    }
+
+    @*//  @if (Model.CurrentState != "Begin")*@
+   
+    else
+    {
+    <div class=" identity-wrapper " style=" white-space: normal; margin-top: -.8rem; ">
+
+        <div class=" " style="font-size: 0.85rem; line-height: 1.35rem;  ">
+
+            <ul>
+                <li style=""><strong>Note: Please have your payment method ready to pay the small entry fee as soon as you finish  submitting your images. </strong>  </li>
+
+                <li class="phoneHidden">
+                    Use the panel on the right to submit up to three entries. Images are limited to files with the 'jpeg' or 'jpg' extensions. 
+                    The upload file size is limited to 5 MB.
+                </li>
+                <li class="phoneOnly">Use the panel below to submit 1 to 3 entries.</li>
+
+                <li>You may either drag an image into the top <strong>'Drop image here'</strong> box or use the blue <strong>'Click to select image'</strong> Button.   </li>
+                
+               
+                <li>Fill out the information below the drop image box, then click orange "Submit First Image' button"</li>
+
+            </ul>
+            <hr />
+            <ul>
+
+                <li>
+                    After summiting an entry, a green bar should appear saying
+                    <span style="color: White; background: green; padding:4px">&nbsp; Entry Successful &nbsp; </span>
+                </li>
+                <li>
+                    <strong> This means your entry has been received. </strong>
+                </li>
+
+                <li>
+                          If you wish you, submit one or two additional entries or, stop now and pay your entry fee.
+                </li>
+            </ul>
+
+            <hr    style="background-color: white; ; height: 2px;"     />
+                
+            <ul>
+                <li>If you should encounter a <span style="color: White; background: red; padding:4px">&nbsp; RED BOX Message &nbsp;</span> --</li>
+                <li> 1. Note: The red message will remain in the screen, until a the next successful upload is achieved!</li>
+                <li> 2. See Help Tips Below to proceed, depending on the message in the red box.  </li>
+
+            </ul>
+            <hr />
+
+            <ul class="helpful-hints" style="font-size: 0.8rem; ">
+                
+                
+
+                <li><strong>Helpful Tips on Red Box Errors: </strong></li>
+
+                <li>
+                    See a red box saying 'No files to uploaded'? Place an image in the area 'Drop image here'.
+                </li>
+
+
+                <li>
+                    See a red box saying 'This image previously submitted!' ?  Retry with a different image.<br>
+                </li>
+
+                <li>See a red box saying 'This {ArtWork Title} previously submitted' ?, 
+                    You have already used that title - Retry with a different title.  </li>
+
+                <li>See a red box talking about need for 'jpg or jpeg' extension' ?,  <br>
+                     The image is invalid for upload, try a different image with 'jpg or jpeg' extension.</li>
+
+                <li><hr /></li>
+
+                <li>If you see a box bar with any other messages - </li>
+            
+                <li>
+
+
+                    <table>
+                        <tr>
+                            <td>
+                                <ul>
+                                    <li>please contact: </li>
+                                    <li>Gaby Pruitt -</li>
+                                    <li>gpruitt14@gmail.com</li>
+                                    <li>214-549-1283</li>
+                                </ul>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li>or</li>
+                                    <li>Gene Dillard -</li>
+                                    <li>president@planoartassociation.org</li>
+                                    <li>214-403-9171</li>
+                                </ul>
+                            </td>
+
+
+                        </tr>
+                    </table>
+
+
+
+                </li> 
+            
+                <li> <strong> Other questions about schedules, artwork drop-off, pick-up or details related to the event please feel free to contact us. </strong>    </li> 
+            
+            
+            </ul>
+       
+            <div class="clearFix"> </div>
+        </div>
+    </div>
+
+    }
+
+</div>
+
+
+<div class="right-side" style="min-height:875px!important; margin-top:-3rem;">
+
+    <div class="phoneOnly" style="margin-top:-3rem!important;">
+        &nbsp;
+
+    </div>
+    
+    @if (Model.CurrentState != "Begin")
+    {
+        <h3>Submit Entry Area</h3>
+
+        @Html.Partial("_formdesign", Model.ImageUploadViewModel)
+    }
+ 
+
+</div>

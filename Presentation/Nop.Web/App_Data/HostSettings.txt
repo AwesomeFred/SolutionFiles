@@ -1,0 +1,2 @@
+DataProvider: sqlserver
+DataConnectionString: Data Source=integritywebservices.net;Initial Catalog=howard_STORE;User ID=Admin_PAAStore;Password=Defender01; MultipleActiveResultSets=True;App=EntityFramework

@@ -1,0 +1,87 @@
+﻿
+
+
+
+@using Nop.Web.Themes.PAA.ViewModels
+@model  RegistrationViewModel
+
+@{
+    Layout = "~/Views/Shared/_ColumnsOne.cshtml";
+    //title
+    Html.AddTitleParts(T("PageTitle.Register").Text);
+    //page class
+    Html.AppendPageCssClassParts("html-register-page");
+
+    var ivm = Model.ImageUploadViewModel;
+
+    ViewBag.Title = "Members’ Exhibit 2019";
+    ViewBag.Id = "Image-Entry-Form";
+    ViewBag.PageTitle = "Eastern Impressions ";
+    
+}
+<style>    .phoneHidden {
+        margin-right:3px!important;
+    }
+</style>
+<section id="register-request">
+
+    <h2>ARTWORK PURCHASE OPPORTUNITY</h2>
+    <br><br />
+    <div class="register-request-wrapper">
+        
+     
+        @*@Html.HiddenFor(model => model.SelfIdentificationViewModel.RadioButtionList.SelectedRole  , new { Id = "fred"  }  )*@
+        
+
+    
+        @using (Ajax.BeginForm("EntryRegister", "ImageReview",
+                                  new AjaxOptions
+                                  {
+                                      HttpMethod = "POST",
+                                      InsertionMode = InsertionMode.Replace,
+                                      UpdateTargetId = "replace-this-element",
+                                      
+                                  },
+                                  new { target = "_self" }
+                                  
+                                  ))
+        {
+
+            @Html.AntiForgeryToken()
+
+            @Html.Hidden(Model.CurrentState)
+
+            <div id="replace-this-element">
+
+                @Html.Partial("_RegisterRequest", @Model)
+
+            </div>
+
+        } 
+    
+         <div class="clearfix"></div>
+
+    </div>
+    
+    
+    
+
+
+    <form id="PayPalPayment" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style="visibility: hidden;">
+     
+
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="hosted_button_id" value="UQF4ZESZWHUWS">
+        <table>
+            <tr><td><input type="hidden" name="on0" value="2018 Members Show Fee ($25)">Pay 2018 Members Show Fee ($25)</td></tr>
+            <tr><td><input type="hidden" name="os0" maxlength="200"></td></tr>
+        </table>
+        <input type="image" src="~/Themes/PAA/Content/siteimages/payNow1.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+   
+    
+    
+        </form> <!-- end form 2 -->
+
+
+</section>

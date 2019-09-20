@@ -1,0 +1,212 @@
+﻿@using System.Text
+@model  Nop.Web.DallasArt.Models.PaaMember
+
+@{
+    ViewBag.Title = "Member Details";
+
+    string renewalDate = Model.Renewal.ToShortDateString();
+
+     StringBuilder CustomerRoles = new StringBuilder();
+    String Delimiter = "";
+
+    foreach (var role in Model.CustomerRoles)
+    {
+        CustomerRoles.Append(Delimiter);
+        CustomerRoles.Append(role.Name);
+        Delimiter = ", ";
+    }
+
+}
+
+<style>
+
+    #headline, #headerWrapper {
+        display: none;
+    }
+
+
+    .master-wrapper-content {
+        text-align: left;
+    }
+
+
+    .details-table {
+        font-size: 1rem;
+        padding: 0;
+        margin: 0;
+      
+    }
+
+        .details-table tr {
+            margin: 0;
+            width: 100%;
+        }
+
+
+            .details-table tr th {
+                padding: 2px 10px 2px 2px;
+                white-space: nowrap;
+                width: 3%;
+                text-align: right;
+            }
+
+
+    /*a {
+        color: blueviolet;
+        font-size: 1.2rem;
+    }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+
+    h3 {
+        padding: 0 !important;
+        font-size: 1.5rem !important;
+        margin: 0 0 4px 0 !important;
+        color: red !important;
+    }
+
+    h4 {
+        padding: 0 !important;
+        margin: 0 0 2px 0 !important;
+        font-size: 1rem !important;
+        font-weight: 700 !important;
+    }*/
+
+
+
+
+    .header-section {
+        width: 33.3%;
+        float: left;
+    }
+
+
+
+    .listing-header {
+        width: 1024px;
+        height: 80px;
+    }
+
+        .listing-header .header-section {
+            width: 33.3%;
+            float: left;
+        }
+
+
+        .listing-header .info-section h3 {
+            font-size: 1.6rem !important;
+            margin: 0 0 4px 0 !important;
+            color: red !important;
+        }
+
+        .listing-header .info-section h4 {
+            margin: 0 0 2px 0 !important;
+            font-size: 1rem !important;
+            font-weight: 700 !important;
+        }
+
+        .listing-header .info-section a {
+            color: blueviolet !important;
+            font-size: 1.3rem;
+        }
+
+            .listing-header .info-section a:hover {
+                text-decoration: underline;
+            }
+
+        .listing-header .sort-section {
+            margin-top: 52px;
+        }
+
+            .listing-header .sort-section select,
+            .listing-header .sort-section span {
+                font-size: 0.8rem !important;
+                height: 26px;
+                padding: 1px;
+            }
+</style>
+
+
+
+
+<div class="listing-header">
+
+    <div class="header-section info-section">
+
+        <h3>Staff Dashboard </h3>
+        <h4>Member Details</h4>
+
+        @Html.ActionLink("Edit", "Edit", new { id = Model.PaaMemberId }) |
+        @Html.ActionLink("Back to List", "Index")
+
+    </div>
+
+    <div class="header-section sort-section">
+        @*<span style="font-size:0.85rem">Sort By: </span>
+        <select id="sort-select" onchange="DoReSort(this);">
+            <option selected value="0">Last Name</option>
+            <option value="1">Email</option>
+            <option value="2">Expiring</option>
+        </select>*@
+
+    </div>
+    <div class="header-section partial-section">
+
+        @*@Html.Partial("_ConstantContactControl")*@
+    </div>
+</div>
+
+
+
+<hr />
+<div>
+
+
+    <table class="details-table">
+
+        <tr><th> @Html.DisplayNameFor(model => model.Email): </th>        <td>@Html.DisplayFor(model => model.Email)</td><th>Member</th></tr>
+        <tr><th> @Html.DisplayNameFor(model => model.FirstName):</th>     <td>@Html.DisplayFor(model => model.FirstName)</td><th></th></tr>
+        <tr><th> @Html.DisplayNameFor(model => model.LastName):</th>      <td>@Html.DisplayFor(model => model.LastName)</td><th></th></tr>
+        <tr><th> @Html.DisplayNameFor(model => model.Company):</th>       <td>@Html.DisplayFor(model => model.Company)</td><th></th></tr>
+        <tr><th> @Html.DisplayNameFor(model => model.StreetAddress):</th> <td>@Html.DisplayFor(model => model.StreetAddress)</td><th></th></tr>
+        <tr><th> @Html.DisplayNameFor(model => model.City):</th>          <td>@Html.DisplayFor(model => model.City)</td><th></th></tr>
+       
+        <tr><th> @Html.DisplayNameFor(model => model.State):</th>         <td>@Html.DisplayFor(model => model.State.Abbreviation)</td><th></th></tr>
+      
+        <tr><th> @Html.DisplayNameFor(model => model.ZipCode):</th>       <td>@Html.DisplayFor(model => model.ZipCode)</td><th></th></tr>
+        <tr><th> @Html.DisplayNameFor(model => model.Phone):</th>         <td>@Html.DisplayFor(model => model.Phone)</td><th></th></tr>
+        <tr><th> @Html.DisplayNameFor(model => model.Url):</th>           <td>@Html.DisplayFor(model => model.Url)</td><th></th></tr>
+
+        <tr><th colspan="3"><hr></th></tr>
+        <tr><th> @Html.DisplayNameFor(model => model.Status):</th>       <td>@Html.DisplayFor(model => model.Status.Value)</td><th>Membership</th></tr>
+        <tr><th> @Html.DisplayNameFor(model => model.Renewal):</th>       <td>@renewalDate </td><th></th></tr>
+        <tr><th> @Html.DisplayNameFor(model => model.CustomerRoles):</th>         <td>@CustomerRoles.ToString()</td><th></th></tr>
+
+        @if ( Model.PartnerRequired  )
+        {
+
+        <tr><th colspan="3"><hr></th></tr>
+        <tr><th> @Html.DisplayNameFor(model => model.PartnerEmail):</th>       <td>@Html.DisplayFor(model => model.PartnerEmail)</td><th>Family Member</th></tr>
+        <tr><th> @Html.DisplayNameFor(model => model.PartnerFirstName):</th>   <td>@Html.DisplayFor(model => model.PartnerFirstName) </td><th></th></tr>
+        <tr><th> @Html.DisplayNameFor(model => model.PartnerLastName):</th>    <td>@Html.DisplayFor(model => model.PartnerLastName)</td><th></th></tr>
+
+        }
+
+
+        <tr><th colspan="3"><hr></th></tr>
+
+        <tr><th> @Html.DisplayNameFor(model => model.HomeSlideApproved):</th>  <td>@Html.DisplayFor(model => model.HomeSlideApproved)</td><th>Front Page Status</th></tr>
+        <tr><th> @Html.DisplayNameFor(model => model.ArtWork):</th>           <td>@Html.DisplayFor(model => model.ArtWork)</td><th></th></tr>
+        <tr><th> @Html.DisplayNameFor(model => model.ArtWorkTitle):</th>           <td>@Html.DisplayFor(model => model.ArtWorkTitle)</td><th></th></tr>
+
+
+
+    </table>
+    <hr>
+    <p>&nbsp;</p>
+
+
+</div>

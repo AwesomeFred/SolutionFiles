@@ -1,0 +1,107 @@
+﻿
+@{
+    ViewBag.Title = "NewsLetters";
+    ViewBag.Id = "NewsLetters";
+    ViewBag.PageTitle = "NewsLetters";
+}
+
+
+<div class="news-wrapper">
+ 
+        <!-- POPUP IFRAME LOCATION  -->
+    @*@Html.Partial("_NewsDisplay")*@
+
+    <div class="display-window">
+ 
+        <div id="header">
+            <ul>
+                <li id="bss-prev" onclick="currentNews()">< <span>Current Issue</span></li>
+                <li  id="title">  </li>
+                <li  id="bss-next" onclick="moveNews()"    ><span>Older Issues</span> >>>  </li>
+            </ul>
+            @*<div id="close"></div>*@
+        </div>   
+        <iframe name="localFrame" id="local-frame"></iframe>
+    </div>
+
+</div>
+
+
+
+
+
+
+<script type="text/javascript">
+
+    var index = 0;
+        var newspath = "http://conta.cc/";
+        var newsletters = [];
+
+        // add new letter here
+
+        newsletters.push({ key: '2zFZdwu', name: 'August 2019' });
+        newsletters.push({ key: '2XS9TCO', name: 'June 2019' });
+
+        newsletters.push({ key: '2HtEcZf', name: 'May 2019' });
+        newsletters.push({ key: '2DAs5rr', name: 'February 2019' });
+        newsletters.push({ key: '2FzmlRj', name: 'Fall 2018' });
+        newsletters.push({ key: '2JLgGLJ', name: 'August 2018' });
+
+        
+        newsletters.push({ key: '2KAp24O', name: 'June/July 2018' });
+        newsletters.push({ key: '2IBTmKU', name: 'April 2018' });
+        newsletters.push({ key: '2FGlB9U', name: 'Jan/Feb 2018' });
+        newsletters.push({ key: '2p0aQfg', name: 'December 2017' });
+        newsletters.push({ key: '2zgmEe1', name: 'November 2017' });
+        newsletters.push({ key: '2gjIcyE', name: 'October 2017' });
+        newsletters.push({ key: '2ff3NaR', name: 'September 2017' });
+        newsletters.push({ key: '2fW3Ls7', name: 'August 2017' });
+        newsletters.push({ key: '2uV92Gh', name: 'July 2017' });
+        newsletters.push({ key: '2tM5QZ7', name: 'June 2017' });
+
+    $(document).ready(function () {
+
+            index = 0;
+            // init title/path
+            updateNews();
+
+
+            $("a").click(function (e) {
+
+                e.preventDefault();
+
+                $("#title").text(this.innerHTML);
+                $("#local-frame").attr("src", $(this).attr("href") );
+
+            });
+        });
+
+
+        function currentNews() {
+
+            index = 0;
+            updateNews();
+        }
+           
+
+        function moveNews() {
+
+            if ((index !== newsletters.length-1)) index++;
+            updateNews();
+
+        }
+
+        function updateNews() {
+            $("#title").text(newsletters[index].name);
+            $("#local-frame").attr("src", newspath + newsletters[index].key);
+
+            if (index === 0){ $("#bss-prev").addClass("inactive");}
+            else {    $("#bss-prev").removeClass("inactive");}
+
+            if (index === newsletters.length-1) { $("#bss-next").addClass("inactive"); }
+            else { $("#bss-next").removeClass("inactive"); }
+
+        }
+   
+
+</script>

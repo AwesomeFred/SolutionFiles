@@ -1,0 +1,89 @@
+﻿
+
+/// <reference path="_variables.scss" />
+
+ 
+
+
+
+/*  BODY LARGE
+--------------------------------------------------  */
+body { .sqmarker{background-color:  green; } }
+ 
+
+/*  HEADER LARGE
+--------------------------------------------------  */
+
+ header h1{  font-size: 3.5rem !important; }
+  
+/*  NAV LARGE
+--------------------------------------------------  */
+    nav {
+        #navWrapper {
+            font-size: .8em;
+
+            ul {
+                margin-left: $gutter;
+                border-left: 1px solid rgba(0,0,0,0.3);
+
+                li {
+                    width: auto !important;
+
+                    a {
+                        padding: .5rem 1rem;
+                    }
+                }
+             }
+        }
+    }
+    // end  nav
+
+/*  MAIN  LARGE
+--------------------------------------------------  */
+main { 
+    #mainWrapper {
+           
+  
+           
+   }
+ }
+    // end main
+
+
+ /*    PAGE SETTINGS OVERIDES LARGE
+--------------------------------------------------  */
+ 
+
+
+/*    PAGE SETTINGS OVERIDES LARGE
+--------------------------------------------------  */
+
+#about-page
+{}
+#board-page{
+
+}
+#bylaws-page{
+
+}
+#contact-page{
+
+}
+#index-page{
+
+}
+
+#join-page{
+ 
+  //    h1 {font-size: 3.5rem !important;}
+
+ .headerWrapper h1 {font-size: 3.5rem !important;}
+
+  .product-grid .thumbnail .product-item .picture { 
+                                     width: 12%;
+                                   }   
+
+}
+#partners-page{
+
+}

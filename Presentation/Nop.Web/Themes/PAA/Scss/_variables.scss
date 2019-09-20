@@ -1,0 +1,59 @@
+﻿
+ 
+//$primaryColor: #286893 ;
+// 
+
+$headerColor: #14242e;
+
+
+$accent:#8c8c38;
+ 
+ //$color2 :#14242E;
+$fontColor:#35373a;
+
+$primaryColor:#e1e1e1; 
+$secondaryColor:#c1c1c1;
+$buttonColor:#4ab2f1;
+
+$grayTextColor:#a6a6a6 ;
+
+$blueTextColor:#0c92cf;
+
+
+$navRed:#e73438;
+$navYellow:#fcb349;
+$navPurple:#cd85b0;
+$navGreen :#6ac4aa;
+$navOrange:#f06336;
+$navDarkBlue:#6666ff;
+$navWhite :white;
+$navBlue : #00afe4;
+
+
+$highlightOrange: #f06e36;
+
+
+$ActiveColor:  darken( $secondaryColor, 10% );
+$fontColor:#333333;
+
+
+$defaultFont :  'Arial', sans-serif;
+//$defaultFont :  'Lato', sans-serif;
+$normalWeight: 300;
+$boldWeight  : 700;
+$stdFontSize : 15px;
+
+
+
+// Phones   <  768    
+// Tablet   >= 768   48rem
+// Desktop  >= 992   62rem
+// Large    >= 1200  75rem
+// Gutter   15       0.9375
+$tablet:  48rem;
+$desktop: 62rem;
+$large:   75rem;
+
+$gutter:    2%;
+$gutterdbl: ( 2 * $gutter  ) ;
+

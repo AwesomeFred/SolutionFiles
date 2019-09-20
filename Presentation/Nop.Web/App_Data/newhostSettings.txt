@@ -1,0 +1,2 @@
+DataProvider: sqlserver
+DataConnectionString: Data Source=138.128.242.143;Initial Catalog=Test_Da;User ID=admin_test;Password=Defender01; MultipleActiveResultSets=True;App=EntityFramework
